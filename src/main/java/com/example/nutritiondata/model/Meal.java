@@ -1,10 +1,12 @@
 package com.example.nutritiondata.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
+@Table(name="meals")
 public class Meal {
 
     @Id
@@ -19,12 +21,20 @@ public class Meal {
 
     private Integer carbohydrates;
 
-    private String day;
+    @ManyToOne()
+    private Day day;
 
     public Meal() {
     }
 
-    public Meal(Integer calories, Integer protein, Integer fat, Integer carbohydrates, String day) {
+    public Meal(Integer calories, Integer protein, Integer fat, Integer carbohydrates) {
+        this.calories = calories;
+        this.protein = protein;
+        this.fat = fat;
+        this.carbohydrates = carbohydrates;
+    }
+
+    public Meal(Integer calories, Integer protein, Integer fat, Integer carbohydrates, Day day) {
         this.calories = calories;
         this.protein = protein;
         this.fat = fat;
@@ -32,11 +42,11 @@ public class Meal {
         this.day = day;
     }
 
-    public String getDay() {
+    public Day getDay() {
         return day;
     }
 
-    public void setDay(String day) {
+    public void setDay(Day day) {
         this.day = day;
     }
 

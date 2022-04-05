@@ -5,15 +5,14 @@ import com.example.nutritiondata.model.Meal;
 import com.example.nutritiondata.service.DayService;
 import com.example.nutritiondata.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-@Controller
-public class MealController {
+@org.springframework.stereotype.Controller
+public class Controller {
 
     @Autowired
     MealService mealService;

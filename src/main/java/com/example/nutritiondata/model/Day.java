@@ -16,7 +16,6 @@ public class Day {
     @OneToMany()
     private List<Meal> meals = new ArrayList<>();
 
-
     public void addMeal(Meal meal) {
         meals.add(meal);
     }

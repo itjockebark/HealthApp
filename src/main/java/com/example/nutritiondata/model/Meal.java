@@ -21,7 +21,7 @@ public class Meal {
 
     private Integer carbohydrates;
 
-    @ManyToOne()
+    @ManyToOne
     private Day day;
 
     public Meal() {

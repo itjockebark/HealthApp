@@ -15,7 +15,7 @@
 
     <div class="border border-secondary p-4 rounded">
         <div class="mb-3">
-            <select class="form-control" th:object="${days}">
+            <select class="form-control" th:field="*{day}">
                 <option value="0">Select day</option>
                 <option th:each="day : ${days}" th:value="${day.id}" th:text="${day.name}"></option>
             </select>

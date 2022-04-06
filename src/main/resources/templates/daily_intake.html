@@ -13,21 +13,21 @@
 <table class="table table-bordered" style="max-width: 1500px; margin: auto">
     <thead class="table-dark">
     <tr>
-        <th>Calories</th>
-        <th>Protein</th>
-        <th>Fat</th>
-        <th>Carbohydrates</th>
-        <th>Day</th>
+        <th>Days</th>
+        <th>Total calories</th>
+        <th>Total protein</th>
+        <th>Total fat</th>
+        <th>Total Carbohydrates</th>
     </tr>
     </thead>
     <tbody class="table-light">
     <th:block th:each="meal : ${meals}">
         <tr>
+            <td th:text="${meal.day}"></td>
             <td th:text="${meal.calories}"></td>
             <td th:text="${meal.protein}"></td>
             <td th:text="${meal.fat}"></td>
             <td th:text="${meal.carbohydrates}"></td>
-            <td th:text="${meal.day}"></td>
         </tr>
     </th:block>
     </tbody>

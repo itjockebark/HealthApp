@@ -14,6 +14,12 @@
 <form th:action="@{/daily_intake/savemeal}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${meal}">
 
     <div class="border border-secondary p-4 rounded">
+        <div class="mb-3">
+            <select class="form-control" th:object="${days}">
+                <option value="0">Select day</option>
+                <option th:each="day : ${days}" th:value="${day.name}" th:text="${day.name}"></option>
+            </select>
+        </div>
 
         <div class="mb-3">
             <label class="h5" style="font-weight: bold">Calories</label>

@@ -32,7 +32,8 @@ public class Controller {
 
     @GetMapping("/daily_intake/meal_registration")
     public String mealRegistration(Model model) {
-
+        List<Day> days = dayService.getAllDays();
+        model.addAttribute("days", days);
         model.addAttribute("meal", new Meal());
         return "meal_registration";
     }

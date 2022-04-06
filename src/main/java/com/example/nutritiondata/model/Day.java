@@ -8,10 +8,14 @@ import java.util.List;
 @Table(name = "days")
 public class Day {
     @Id
+    @GeneratedValue
+    private Integer id;
+
     private String name;
 
     @OneToMany()
     private List<Meal> meals = new ArrayList<>();
+
 
     public void addMeal(Meal meal) {
         meals.add(meal);
@@ -36,5 +40,13 @@ public class Day {
     @Override
     public String toString() {
         return name;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }

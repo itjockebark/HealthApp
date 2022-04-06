@@ -27,6 +27,13 @@ public class Day {
         this.name = name;
     }
 
+    public List<Meal> getMeals() {
+        return meals;
+    }
+
+    public void setMeals(List<Meal> meals) {
+        this.meals = meals;
+    }
 
     public void setName(String name) {
         this.name = name;

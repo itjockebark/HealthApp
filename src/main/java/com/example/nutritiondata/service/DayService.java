@@ -11,9 +11,10 @@ import java.util.List;
 public class DayService {
 
     @Autowired
-    DayDAO dao;
+    DayDAO dayDAO;
+
 
     public List<Day> getAllDays() {
-        return dao.findAll();
+        return dayDAO.findAll();
     }
 }

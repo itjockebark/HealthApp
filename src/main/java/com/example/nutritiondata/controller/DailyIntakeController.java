@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
-public class Controller {
+public class DailyIntakeController {
 
     @Autowired
     MealService mealService;

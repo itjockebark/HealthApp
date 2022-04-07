@@ -14,10 +14,11 @@
     <thead class="table-dark">
     <tr>
         <th>Days</th>
-        <th>Total calories</th>
-        <th>Total protein</th>
-        <th>Total fat</th>
-        <th>Total Carbohydrates</th>
+        <th>Calories</th>
+        <th>Protein</th>
+        <th>Fat</th>
+        <th>Carbohydrates</th>
+        <th>Total</th>
     </tr>
     </thead>
     <tbody class="table-light">
@@ -28,11 +29,14 @@
             <td th:text="${meal.protein}"></td>
             <td th:text="${meal.fat}"></td>
             <td th:text="${meal.carbohydrates}"></td>
+
+            <td>
+                <a class="h4 m-3" th:href="@{'/daily_intake/total_intake/' + ${meal.getDay().id}}">Total Amount</a>
+            </td>
         </tr>
     </th:block>
     </tbody>
 </table>
-
 
 </body>
 </html>

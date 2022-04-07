@@ -13,7 +13,7 @@ public class Day {
 
     private String name;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "day")
     private List<Meal> meals = new ArrayList<>();
 
     public void addMeal(Meal meal) {

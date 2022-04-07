@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
+</head>
+<body>
+<table class="table table-bordered" style="max-width: 1500px; margin: auto">
+    <thead class="table-dark">
+    <tr>
+        <th>Day</th>
+        <th>Total calories</th>
+        <th>Total protein</th>
+        <th>Total fat</th>
+        <th>Total Carbohydrates</th>
+    </tr>
+    </thead>
+    <tbody class="table-light">
+    <th:block>
+        <tr>
+            <td th:text="${day}"></td>
+            <td th:text="${totalcalories}"></td>
+            <td th:text="${totalprotein}"></td>
+            <td th:text="${totalfat}"></td>
+            <td th:text="${totalcarbohydrates}"></td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+<a class="h4" th:href="@{/daily_intake}">Cancel</a>
+</body>
+</html>

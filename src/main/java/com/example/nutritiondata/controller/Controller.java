@@ -7,6 +7,7 @@ import com.example.nutritiondata.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -21,14 +22,30 @@ public class Controller {
     DayService dayService;
 
 
-    @GetMapping("/daily_intake")
+   @GetMapping("/daily_intake")
     public String dailyIntake(Model model) {
-        List<Meal> meals = mealService.getAllMeals();
-        List<Day> days = dayService.getAllDays();
-        model.addAttribute("days", days);
-        model.addAttribute("meals", meals);
-        return "daily_intake";
-    }
+       List<Meal> meals = mealService.getAllMeals();
+       List<Day> days = dayService.getAllDays();
+       model.addAttribute("days", days);
+       model.addAttribute("meals", meals);
+       return "daily_intake";
+   }
+
+   @GetMapping("/daily_intake/total_intake/{id}")
+    public String totalIntake(@PathVariable("id") Integer id, Model model) {
+       Day day = dayService.findById(id);
+       Integer totalCalories = mealService.totalCalories(id);
+       Integer totalProtein = mealService.totalProtein(id);
+       Integer totalFat = mealService.totalFat(id);
+       Integer totalCarbohydrates = mealService.totalCarbohydrates(id);
+
+       model.addAttribute("day", day);
+       model.addAttribute("totalcalories", totalCalories);
+       model.addAttribute("totalprotein", totalProtein);
+       model.addAttribute("totalfat", totalFat);
+       model.addAttribute("totalcarbohydrates", totalCarbohydrates);
+       return "total_intake";
+   }
 
     @GetMapping("/daily_intake/meal_registration")
     public String mealRegistration(Model model) {

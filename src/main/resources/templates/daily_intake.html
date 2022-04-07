@@ -19,6 +19,7 @@
         <th>Fat</th>
         <th>Carbohydrates</th>
         <th>Total</th>
+        <th>Operations</th>
     </tr>
     </thead>
     <tbody class="table-light">
@@ -32,6 +33,10 @@
 
             <td>
                 <a class="h4 m-3" th:href="@{'/daily_intake/total_intake/' + ${meal.getDay().id}}">Total Amount</a>
+            </td>
+            <td>
+                <a class="h4 m-3" th:href="@{'/manage/updatedish/' + ${meal.id}}">Edit</a>
+                <a class="h4 m-3" th:href="@{'/manage/deletedish/' + ${meal.id}}">Delete</a>
             </td>
         </tr>
     </th:block>

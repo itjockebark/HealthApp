@@ -1,8 +1,6 @@
 package com.example.nutritiondata.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Entity
@@ -32,14 +30,6 @@ public class Meal {
         this.protein = protein;
         this.fat = fat;
         this.carbohydrates = carbohydrates;
-    }
-
-    public Meal(Integer calories, Integer protein, Integer fat, Integer carbohydrates, Day day) {
-        this.calories = calories;
-        this.protein = protein;
-        this.fat = fat;
-        this.carbohydrates = carbohydrates;
-        this.day = day;
     }
 
     public Day getDay() {

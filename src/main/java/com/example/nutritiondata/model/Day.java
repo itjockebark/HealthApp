@@ -16,9 +16,8 @@ public class Day {
     @OneToMany(mappedBy = "day")
     private List<Meal> meals = new ArrayList<>();
 
-    public void addMeal(Meal meal) {
-        meals.add(meal);
-    }
+    @ManyToMany()
+    private List<Habit> habits = new ArrayList<>();
 
     public Day() {
     }
@@ -41,6 +40,14 @@ public class Day {
 
     public String getName() {
         return name;
+    }
+
+    public List<Habit> getHabits() {
+        return habits;
+    }
+
+    public void setHabits(List<Habit> habits) {
+        this.habits = habits;
     }
 
     @Override

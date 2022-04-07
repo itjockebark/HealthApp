@@ -2,16 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Meal Registration</title>
+    <title>[[${pagetitle}]]</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
 </head>
 <body>
 <div class="text-center">
-    <h1> Meal Registration </h1>
+    <h1>[[${pagetitle}]]</h1>
 </div>
 <br/>
 <form th:action="@{/daily_intake/savemeal}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${meal}">
-
+    <input type="hidden" th:field="${meal.id}"/>
     <div class="border border-secondary p-4 rounded">
         <div class="mb-3">
             <select class="form-control" th:field="*{day}">

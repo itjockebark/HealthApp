@@ -28,64 +28,61 @@ public class MealService {
         return mealDAO.findAll();
     }
 
+    public void deleteById(Integer id) {
+        mealDAO.deleteById(id);
+    }
+
+    public Meal getById(Integer id) {
+        return mealDAO.findById(id).get();
+    }
+
     public Integer totalCalories(Integer id) {
         Day day = dayDAO.getById(id);
         List<Meal> meals = day.getMeals();
-        System.out.println(meals.size());
 
         total = 0;
 
         for (Meal meal : meals) {
             total += meal.getCalories();
         }
-
-        System.out.println(total);
         return total;
     }
 
     public Integer totalProtein(Integer id) {
         Day day = dayDAO.getById(id);
         List<Meal> meals = day.getMeals();
-        System.out.println(meals.size());
 
         total = 0;
 
         for (Meal meal : meals) {
             total += meal.getProtein();
         }
-
-        System.out.println(total);
         return total;
     }
 
     public Integer totalFat(Integer id) {
         Day day = dayDAO.getById(id);
         List<Meal> meals = day.getMeals();
-        System.out.println(meals.size());
 
         total = 0;
 
         for (Meal meal : meals) {
             total += meal.getFat();
         }
-
-        System.out.println(total);
         return total;
     }
 
     public Integer totalCarbohydrates(Integer id) {
         Day day = dayDAO.getById(id);
         List<Meal> meals = day.getMeals();
-        System.out.println(meals.size());
 
         total = 0;
 
         for (Meal meal : meals) {
             total += meal.getCarbohydrates();
         }
-
-        System.out.println(total);
         return total;
     }
+
 
 }

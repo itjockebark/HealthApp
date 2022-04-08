@@ -10,7 +10,7 @@
     <h1>[[${pagetitle}]]</h1>
 </div>
 <br/>
-<form th:action="@{/daily_intake/savemeal}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${meal}">
+<form th:action="@{/daily_intake/save_meal}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${meal}">
     <input type="hidden" th:field="${meal.id}"/>
     <div class="border border-secondary p-4 rounded">
         <div class="mb-3">

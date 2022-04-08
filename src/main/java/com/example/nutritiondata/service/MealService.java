@@ -84,5 +84,7 @@ public class MealService {
         return total;
     }
 
-
+    public void deleteAll() {
+        mealDAO.deleteAll();
+    }
 }

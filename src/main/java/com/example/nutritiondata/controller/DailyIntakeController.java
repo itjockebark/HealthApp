@@ -58,19 +58,19 @@ public class DailyIntakeController {
         return "meal_registration";
     }
 
-    @PostMapping("/daily_intake/savemeal")
+    @PostMapping("/daily_intake/save_meal")
     public String saveMeal(Meal meal) {
         mealService.save(meal);
         return "redirect:/daily_intake";
     }
 
-    @GetMapping("/daily_intake/deletemeal/{id}")
+    @GetMapping("/daily_intake/delete_meal/{id}")
     public String deleteMeal(@PathVariable("id") Integer id) {
         mealService.deleteById(id);
         return "redirect:/daily_intake";
     }
 
-    @GetMapping("/daily_intake/editmeal/{id}")
+    @GetMapping("/daily_intake/edit_meal/{id}")
     public String editMeal(@PathVariable("id") Integer id, Model model) {
         List<Day> days = dayService.findAll();
         Meal meal = mealService.findById(id);
@@ -79,6 +79,12 @@ public class DailyIntakeController {
         model.addAttribute("meal",meal);
         model.addAttribute("pagetitle","Edit Meal");
         return "meal_registration";
+    }
+
+    @GetMapping("/daily_intake/delete_meals")
+    public String deleteMeals(Model model) {
+        mealService.deleteAll();
+        return "redirect:/daily_intake";
     }
 
 

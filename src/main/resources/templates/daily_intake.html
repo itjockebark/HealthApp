@@ -9,6 +9,9 @@
 <div class="h2 text-center">
     <a class="h2" th:href="@{/daily_intake/meal_registration}">Meal Registration</a>
 </div>
+<div class="h2 text-center">
+    <a class="h2" th:href="@{/daily_intake/delete_meals}">Clear</a>
+</div>
 <br/>
 <table class="table table-bordered" style="max-width: 1500px; margin: auto">
     <thead class="table-dark">
@@ -35,8 +38,8 @@
                 <a class="h4 m-3" th:href="@{'/daily_intake/total_intake/' + ${meal.getDay().id}}">Total Amount</a>
             </td>
             <td>
-                <a class="h4 m-3" th:href="@{'/daily_intake/editmeal/' + ${meal.id}}">Edit</a>
-                <a class="h4 m-3" th:href="@{'/daily_intake/deletemeal/' + ${meal.id}}">Delete</a>
+                <a class="h4 m-3" th:href="@{'/daily_intake/edit_meal/' + ${meal.id}}">Edit</a>
+                <a class="h4 m-3" th:href="@{'/daily_intake/delete_meal/' + ${meal.id}}">Delete</a>
             </td>
         </tr>
     </th:block>

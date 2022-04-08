@@ -24,7 +24,7 @@ public class MealService {
         mealDAO.save(meal);
     }
 
-    public List<Meal> getAllMeals() {
+    public List<Meal> findAll() {
         return mealDAO.findAll();
     }
 
@@ -32,7 +32,7 @@ public class MealService {
         mealDAO.deleteById(id);
     }
 
-    public Meal getById(Integer id) {
+    public Meal findById(Integer id) {
         return mealDAO.findById(id).get();
     }
 

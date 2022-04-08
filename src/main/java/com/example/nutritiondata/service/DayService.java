@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class DayService {
@@ -14,7 +13,7 @@ public class DayService {
     @Autowired
     DayDAO dayDAO;
 
-    public List<Day> getAllDays() {
+    public List<Day> findAll() {
         return dayDAO.findAll();
     }
 

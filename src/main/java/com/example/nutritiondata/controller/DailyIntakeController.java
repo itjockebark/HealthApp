@@ -24,8 +24,8 @@ public class DailyIntakeController {
 
    @GetMapping("/daily_intake")
     public String dailyIntake(Model model) {
-       List<Meal> meals = mealService.getAllMeals();
-       List<Day> days = dayService.getAllDays();
+       List<Meal> meals = mealService.findAll();
+       List<Day> days = dayService.findAll();
 
        model.addAttribute("days", days);
        model.addAttribute("meals", meals);
@@ -50,7 +50,7 @@ public class DailyIntakeController {
 
     @GetMapping("/daily_intake/meal_registration")
     public String mealRegistration(Model model) {
-        List<Day> days = dayService.getAllDays();
+        List<Day> days = dayService.findAll();
 
         model.addAttribute("days", days);
         model.addAttribute("meal", new Meal());
@@ -72,8 +72,8 @@ public class DailyIntakeController {
 
     @GetMapping("/daily_intake/editmeal/{id}")
     public String editMeal(@PathVariable("id") Integer id, Model model) {
-        List<Day> days = dayService.getAllDays();
-        Meal meal = mealService.getById(id);
+        List<Day> days = dayService.findAll();
+        Meal meal = mealService.findById(id);
 
         model.addAttribute("days", days);
         model.addAttribute("meal",meal);

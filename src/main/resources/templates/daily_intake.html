@@ -17,6 +17,7 @@
     <thead class="table-dark">
     <tr>
         <th>Days</th>
+        <th>Name</th>
         <th>Calories</th>
         <th>Protein</th>
         <th>Fat</th>
@@ -29,6 +30,7 @@
     <th:block th:each="meal : ${meals}">
         <tr>
             <td th:text="${meal.day}"></td>
+            <td th:text="${meal.name}"></td>
             <td th:text="${meal.calories}"></td>
             <td th:text="${meal.protein}"></td>
             <td th:text="${meal.fat}"></td>

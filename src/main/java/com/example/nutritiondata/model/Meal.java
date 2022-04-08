@@ -11,6 +11,8 @@ public class Meal {
     @GeneratedValue
     private Integer id;
 
+    private String name;
+
     private Integer calories;
 
     private Integer protein;
@@ -25,11 +27,21 @@ public class Meal {
     public Meal() {
     }
 
-    public Meal(Integer calories, Integer protein, Integer fat, Integer carbohydrates) {
+
+    public Meal(String name, Integer calories, Integer protein, Integer fat, Integer carbohydrates) {
+        this.name = name;
         this.calories = calories;
         this.protein = protein;
         this.fat = fat;
         this.carbohydrates = carbohydrates;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Day getDay() {

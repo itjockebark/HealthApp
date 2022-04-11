@@ -28,10 +28,6 @@
             <td th:text="${habit.days}"></td>
             <td th:text="${habit.name}"></td>
 
-
-            <td>
-                <a class="h4 m-3" th:href="@{'/daily_intake/total_intake/' + ${meal.getDay().id}}">Total Amount</a>
-            </td>
             <td>
                 <a class="h4 m-3" th:href="@{'/daily_intake/edit_meal/' + ${meal.id}}">Edit</a>
                 <a class="h4 m-3" th:href="@{'/daily_intake/delete_meal/' + ${meal.id}}">Delete</a>

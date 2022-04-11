@@ -7,6 +7,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.List;
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -24,6 +27,20 @@ class MealDAOTest {
         dao.save(meal);
 
         assertThat(meal.getCalories().equals(600));
+    }
+
+    @Test
+    public void findAll() {
+        List<Meal> meals = dao.findAll();
+
+        assertThat(meals.size()).isEqualTo(1);
+    }
+
+    @Test
+    public void findById() {
+        Meal meal = dao.findById(1).get();
+
+        assertThat(meal.getName().compareTo("Köttbullar och potatis"));
     }
 
     @Test

@@ -27,7 +27,6 @@ public class Meal {
     public Meal() {
     }
 
-
     public Meal(String name, Integer calories, Integer protein, Integer fat, Integer carbohydrates) {
         this.name = name;
         this.calories = calories;

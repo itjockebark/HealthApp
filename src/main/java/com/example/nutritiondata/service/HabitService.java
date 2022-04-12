@@ -20,4 +20,8 @@ public class HabitService {
     public void save(Habit habit) {
         habitDAO.save(habit);
     }
+
+    public void deleteById(Integer id) {
+        habitDAO.deleteById(id);
+    }
 }

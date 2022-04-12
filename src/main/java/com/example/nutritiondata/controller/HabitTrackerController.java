@@ -39,7 +39,6 @@ public class HabitTrackerController {
 
         model.addAttribute("days", days);
         model.addAttribute("habit", new Habit());
-        //model.addAttribute("pagetitle","Habit Registration");
         return "habit_registration";
     }
 
@@ -69,7 +68,6 @@ public class HabitTrackerController {
 
         model.addAttribute("day", day);
         model.addAttribute("habits", habits);
-        //model.addAttribute("pagetitle","Edit Meal");
         return "edit_habit";
     }
 

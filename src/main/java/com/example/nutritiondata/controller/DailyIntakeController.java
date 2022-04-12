@@ -82,7 +82,7 @@ public class DailyIntakeController {
     }
 
     @GetMapping("/daily_intake/delete_meals")
-    public String deleteMeals(Model model) {
+    public String deleteMeals() {
         mealService.deleteAll();
         return "redirect:/daily_intake";
     }

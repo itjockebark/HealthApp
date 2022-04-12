@@ -1,6 +1,8 @@
 package com.example.nutritiondata.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -21,8 +23,16 @@ public class Meal {
 
     private Integer carbohydrates;
 
-    @ManyToOne
-    private Day day;
+    @ManyToMany(mappedBy = "meals",cascade = CascadeType.PERSIST)
+    private List<Day> days = new ArrayList<>();
+
+    public List<Day> getDays() {
+        return days;
+    }
+
+    public void setDays(List<Day> days) {
+        this.days = days;
+    }
 
     public Meal() {
     }
@@ -43,13 +53,6 @@ public class Meal {
         this.name = name;
     }
 
-    public Day getDay() {
-        return day;
-    }
-
-    public void setDay(Day day) {
-        this.day = day;
-    }
 
     public Integer getCalories() {
         return calories;

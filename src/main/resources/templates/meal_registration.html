@@ -14,7 +14,7 @@
     <input type="hidden" th:field="${meal.id}"/>
     <div class="border border-secondary p-4 rounded">
         <div class="mb-3">
-            <select class="form-control" th:field="*{day}">
+            <select class="form-control" th:field="*{days}">
                 <option value="0">Select day</option>
                 <option th:each="day : ${days}" th:value="${day.id}" th:text="${day.name}"></option>
             </select>

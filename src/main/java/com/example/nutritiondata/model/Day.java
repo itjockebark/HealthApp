@@ -1,6 +1,7 @@
 package com.example.nutritiondata.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class Day {
     @GeneratedValue
     private Integer id;
 
-    private String name;
+    private LocalDate date;
 
     @ManyToMany
     private List<Meal> meals = new ArrayList<>();
@@ -22,8 +23,18 @@ public class Day {
     public Day() {
     }
 
-    public Day(String name) {
-        this.name = name;
+    public Day(String date) {
+        LocalDate parsedDate = LocalDate.parse(date);
+        this.date = parsedDate;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        LocalDate dayDate = LocalDate.parse(date);
+        this.date = dayDate;
     }
 
     public List<Meal> getMeals() {
@@ -34,13 +45,6 @@ public class Day {
         this.meals = meals;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
 
     public List<Habit> getHabits() {
         return habits;
@@ -50,10 +54,7 @@ public class Day {
         this.habits = habits;
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
+
 
     public void setId(Integer id) {
         this.id = id;

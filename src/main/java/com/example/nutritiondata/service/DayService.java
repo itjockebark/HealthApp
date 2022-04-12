@@ -21,4 +21,8 @@ public class DayService {
         return dayDAO.findById(id).get();
     }
 
+    public Day save(Day day) {
+        Day savedDay = dayDAO.save(day);
+        return savedDay;
+    }
 }

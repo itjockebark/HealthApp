@@ -22,6 +22,12 @@ public class HabitService {
     }
 
     public void deleteById(Integer id) {
+        Habit habit = habitDAO.getById(id);
+        habit.getDays().forEach(day -> day.getHabits().remove(habit));
         habitDAO.deleteById(id);
+    }
+
+    public Habit findById(Integer id) {
+        return habitDAO.findById(id).get();
     }
 }

@@ -2,6 +2,7 @@ package com.example.nutritiondata.controller;
 
 import com.example.nutritiondata.model.Day;
 import com.example.nutritiondata.model.Habit;
+import com.example.nutritiondata.model.Meal;
 import com.example.nutritiondata.service.DayService;
 import com.example.nutritiondata.service.HabitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class HabitTrackerController {
 
         model.addAttribute("days", days);
         model.addAttribute("habit", new Habit());
-        //model.addAttribute("pagetitle","Meal Registration");
+        //model.addAttribute("pagetitle","Habit Registration");
         return "habit_registration";
     }
 
@@ -60,4 +61,18 @@ public class HabitTrackerController {
         habitService.deleteById(id);
         return "redirect:/habit_tracker";
     }
+
+    @GetMapping("/habit_tracker/edit_habit/{id}")
+    public String editMeal(@PathVariable("id") Integer id, Model model) {
+        Day day = dayService.findById(id);
+        List<Habit> habits = habitService.findAll();
+
+        model.addAttribute("day", day);
+        model.addAttribute("habits", habits);
+        //model.addAttribute("pagetitle","Edit Meal");
+        return "edit_habit";
+    }
+
+
+
 }

@@ -13,7 +13,7 @@ public class Habit {
 
     private String name;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "habits", cascade = CascadeType.PERSIST)
     private List<Day> days = new ArrayList<>();
 
     public Habit() {

@@ -16,4 +16,8 @@ public class HabitService {
     public List<Habit> findAll() {
         return habitDAO.findAll();
     }
+
+    public void save(Habit habit) {
+        habitDAO.save(habit);
+    }
 }

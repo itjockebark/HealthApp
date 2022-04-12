@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<!--<div class="h2 text-center">
-    <a class="h2" th:href="@{/daily_intake/meal_registration}">Habit Registration</a>
-</div>-->
+<div class="h2 text-center">
+    <a class="h2" th:href="@{/habit_tracker/habit_registration}">Habit Registration</a>
+</div>
 <!--<div class="h2 text-center">
     <a class="h2" th:href="@{/daily_intake/delete_meals}">Clear</a>
 </div>-->
@@ -25,12 +25,12 @@
     <tbody class="table-light">
     <th:block th:each="habit : ${habits}">
         <tr>
-            <td th:text="${habit.days}"></td>
+            <td th:text="${habit.days}"></td> <!-- habit.getDay() -->
             <td th:text="${habit.name}"></td>
 
             <td>
-                <a class="h4 m-3" th:href="@{'/daily_intake/edit_meal/' + ${meal.id}}">Edit</a>
-                <a class="h4 m-3" th:href="@{'/daily_intake/delete_meal/' + ${meal.id}}">Delete</a>
+                <a class="h4 m-3" th:href="@{'/habit_tracker/edit_habit/' + ${habit.id}}">Edit</a>
+                <a class="h4 m-3" th:href="@{'/habit_tracker/delete_habit/' + ${habit.id}}">Delete</a>
             </td>
         </tr>
     </th:block>

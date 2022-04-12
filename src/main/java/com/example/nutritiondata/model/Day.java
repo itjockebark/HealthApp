@@ -16,7 +16,8 @@ public class Day {
     @OneToMany(mappedBy = "day")
     private List<Meal> meals = new ArrayList<>();
 
-    @ManyToMany()
+    @ManyToMany(mappedBy = "days", cascade = CascadeType.PERSIST)
+
     private List<Habit> habits = new ArrayList<>();
 
     public Day() {

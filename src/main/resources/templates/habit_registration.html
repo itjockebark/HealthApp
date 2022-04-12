@@ -6,6 +6,28 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
     </head>
 <body>
+<h1> Habit Registration </h1>
+<form th:action="@{/habit_tracker/save_habit}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${habit}">
+    <input type="hidden" th:field="${habit.id}"/>
+    <div class="border border-secondary p-4 rounded">
+        <div class="mb-3">
+            <select class="form-control" th:field="*{days}">
+                <option value="0">Select day</option>
+                <option th:each="day : ${days}" th:value="${day.id}" th:text="${day.name}"></option>
+            </select>
+        </div>
 
+        <div class="mb-3">
+            <label class="h5" style="font-weight: bold">Name</label>
+            <input required th:field="${habit.name}" class="form-control"/>
+        </div>
+
+        <div>
+            <button class="btn btn-primary mb-1" type="submit">Save</button>
+        </div>
+    </div>
+    <br/>
+    <a class="h4" th:href="@{/habit_tracker}">Cancel</a>
+</form>
 </body>
 </html>

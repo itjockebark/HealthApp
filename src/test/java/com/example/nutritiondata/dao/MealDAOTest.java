@@ -1,6 +1,5 @@
 package com.example.nutritiondata.dao;
 
-import com.example.nutritiondata.model.Day;
 import com.example.nutritiondata.model.Meal;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

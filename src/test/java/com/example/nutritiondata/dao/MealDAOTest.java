@@ -1,5 +1,6 @@
 package com.example.nutritiondata.dao;
 
+import com.example.nutritiondata.model.Day;
 import com.example.nutritiondata.model.Meal;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -58,5 +59,40 @@ class MealDAOTest {
 
         assertThat(meal1.getCalories().equals(0));
         assertThat(meal2.getCalories().equals(0));
+    }
+
+    @Test
+    public void deleteById() {
+        Meal meal = new Meal("Potatis",600,200,25,0);
+
+        dao.save(meal);
+
+        Meal foundMeal = dao.findById(meal.getId()).get();
+        System.out.println(foundMeal.getId());
+
+        assertThat(foundMeal.getId().equals(9));
+
+        dao.deleteById(foundMeal.getId());
+
+        assertThat(foundMeal.getId().equals(0));
+    }
+
+    @Test
+    public void totalCalories() {
+        Meal meal1 = new Meal("Potatis",600,200,25,0);
+        Meal meal2 = new Meal("Toast Skagen",500,150,15,1);
+
+        List<Meal> meals = new ArrayList<>();
+
+        meals.add(meal1);
+        meals.add(meal2);
+
+        Integer totalCalories = 0;
+
+        for (Meal meal : meals) {
+            totalCalories += meal.getCalories();
+        }
+
+        assertThat(totalCalories.equals(1100));
     }
 }

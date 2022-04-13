@@ -10,10 +10,6 @@
 <div class="h2 text-center">
     <a class="h2" th:href="@{/manage_date/date_registration}">Date Registration</a>
 </div>
-
-<!--<div class="h2 text-center">
-    <a class="h2" th:href="@{/habit_tracker/delete_habit}">Remove Habit</a>
-</div>-->
 <br/>
 <table class="table table-bordered" style="max-width: 1500px; margin: auto">
     <thead class="table-dark">
@@ -30,6 +26,7 @@
             <td th:text="${date.day.name}"></td>
             <td>
                 <a class="h4 m-3" th:href="@{'/manage_date/edit_date/' + ${date.id}}">Edit</a>
+                <a class="h4 m-3" th:href="@{'/manage_date/delete_date/' + ${date.id}}">Delete</a>
             </td>
         </tr>
     </th:block>

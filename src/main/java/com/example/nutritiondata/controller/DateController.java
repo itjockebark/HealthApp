@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -34,6 +35,12 @@ public class DateController {
         model.addAttribute("days", days);
         model.addAttribute("date", new DateClass());
         return "date_registration";
+    }
+
+    @GetMapping("/manage_date/delete_date/{id}")
+    public String deleteDate(@PathVariable("id") Integer id) {
+        dateService.deleteById(id);
+        return "redirect:/manage_date";
     }
 
     @PostMapping("/manage_date/save_date")

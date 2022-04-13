@@ -20,4 +20,8 @@ public class DateService {
     public void save(DateClass date) {
         dateDAO.save(date);
     }
+
+    public void deleteById(Integer id) {
+        dateDAO.deleteById(id);
+    }
 }

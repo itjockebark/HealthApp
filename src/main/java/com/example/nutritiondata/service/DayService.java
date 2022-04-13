@@ -25,4 +25,5 @@ public class DayService {
         DayClass savedDay = dayDAO.save(day);
         return savedDay;
     }
+
 }

@@ -1,11 +1,9 @@
 package com.example.nutritiondata.controller;
 
 import com.example.nutritiondata.model.DateClass;
-import com.example.nutritiondata.model.DayClass;
 import com.example.nutritiondata.model.Habit;
 import com.example.nutritiondata.model.Meal;
 import com.example.nutritiondata.service.DateService;
-import com.example.nutritiondata.service.DayService;
 import com.example.nutritiondata.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -81,16 +79,16 @@ public class DailyIntakeController {
         return "redirect:/daily_intake/meals";
     }
 
-/*    @GetMapping("/daily_intake/edit_meal/{id}")
+    @GetMapping("/daily_intake/edit_meal/{id}")
     public String editMeal(@PathVariable("id") Integer id, Model model) {
-        List<DayClass> days = dayService.findAll();
-        Meal meal = mealService.findById(id);
+        DateClass date = dateService.findById(id);
+        List<Meal> meals = mealService.findAll();
 
-        model.addAttribute("days", days);
-        model.addAttribute("meal",meal);
+        model.addAttribute("date", date);
+        model.addAttribute("meals",meals);
         model.addAttribute("pagetitle","Edit Meal");
-        return "meal_registration";
-    }*/
+        return "edit_meal";
+    }
 
     @GetMapping("/daily_intake/delete_meals")
     public String deleteMeals() {

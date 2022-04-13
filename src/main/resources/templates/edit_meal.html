@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Meal</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="text-center">
+    <h1>Edit Meal</h1>
+</div>
+<br/>
+<form th:action="@{/daily_intake/save_date}" method="post" style="max-width: 500px; margin: 0 auto">
+    <input type="hidden" th:field="${date.id}"/>
+    <input type="hidden" th:field="${date.day.id}"/>
+    <div class="border border-secondary p-4 rounded">
+        <div class="mb-3">
+            <label class="h5" style="font-weight: bold">Date</label>
+            <input required th:field="${date.date}"/>
+        </div>
+
+        <div class="mb-3">
+            <label class="h5" style="font-weight: bold">Day</label>
+            <input required th:field="${date.day.name}"/>
+        </div>
+
+        <div>
+            <label class="h5" style="font-weight: bold">Meal</label>
+            <th:block th:each="meal : ${meals}">
+                <div>
+                    <input type="checkbox" th:field="*{date.meals}" th:text="${meal.name}"
+                           th:value="${meal.id}"/>
+                </div>
+            </th:block>
+        </div>
+        <br/>
+        <div>
+            <button class="btn btn-primary mb-1" type="submit">Save</button>
+        </div>
+    </div>
+    <a class="h4" th:href="@{/daily_intake}" >Cancel</a>
+</form>
+</body>
+</html>

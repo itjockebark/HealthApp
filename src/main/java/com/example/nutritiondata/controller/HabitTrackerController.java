@@ -61,7 +61,7 @@ public class HabitTrackerController {
     }
 
     @GetMapping("/habit_tracker/edit_habit/{id}")
-    public String editMeal(@PathVariable("id") Integer id, Model model) {
+    public String editHabit(@PathVariable("id") Integer id, Model model) {
         DateClass date = dateService.findById(id);
         List<Habit> habits = habitService.findAll();
 

@@ -19,7 +19,6 @@
         <th>Date</th>
         <th>Day</th>
         <th>Meals</th>
-        <th>Total</th>
         <th>Operations</th>
     </tr>
     </thead>
@@ -28,19 +27,21 @@
         <tr>
             <td th:text="${#dates.format(date.date, 'dd-MM-yyyy')}"></td>
             <td th:text="${date.day.name}"></td>
-            <td th:text="${date.meals}"}></td>
+            <td>
+                <a class="h4 m-3" th:href="@{'/daily_intake/connected_meals/' + ${date.id}}">Connected Meals</a>
+            </td>
             <!--th:href till alla måltider kopplade till enstaka datum-->
-
-<!--            <td th:text="${meal.calories}"></td>
+<!--
+            <td th:text="${meal.calories}"></td>
             <td th:text="${meal.protein}"></td>
 
             <td>
                 <a class="h4 m-3" th:href="@{'/daily_intake/total_intake/' + ${meal.getDay().id}}">Total Amount</a>
-            </td>
-            <td>
-                <a class="h4 m-3" th:href="@{'/daily_intake/edit_meal/' + ${meal.id}}">Edit</a>
-                <a class="h4 m-3" th:href="@{'/daily_intake/delete_meal/' + ${meal.id}}">Delete</a>
             </td>-->
+            <td>
+                <a class="h4 m-3" th:href="@{'/daily_intake/edit_meal/' + ${date.id}}">Edit   </a>
+
+            </td>
         </tr>
     </th:block>
     </tbody>

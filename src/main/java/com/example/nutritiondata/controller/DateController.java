@@ -56,6 +56,13 @@ public class DateController {
         return "redirect:/habit_tracker";
     }
 
+    @PostMapping("/daily_intake/save_date")
+    public String saveDate_mealRegistration(DateClass date) {
+        dayService.save(date.getDay());
+        dateService.save(date);
+        return "redirect:/daily_intake";
+    }
+
     @GetMapping("manage_date/edit_date/{id}")
     public String manageDate(@PathVariable("id") Integer id, Model model) {
         DateClass date = dateService.findById(id);

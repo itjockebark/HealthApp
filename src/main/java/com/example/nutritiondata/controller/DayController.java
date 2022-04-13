@@ -19,13 +19,24 @@ public class DayController {
     @GetMapping("/manage_day")
     public String manageDay(Model model) {
         List<Day> days = dayService.findAll();
-
         model.addAttribute("days", days);
         return "manage_day";
     }
 
+    @GetMapping("/manage_day/day_registration")
+    public String day_registration(Model model) {
+        model.addAttribute(new Day());
+        return "day_registration";
+    }
+
+    @PostMapping("/manage_day/save_day")
+    public String saveDay_dayRegistration(Day day) {
+        dayService.save(day);
+        return "redirect:/manage_day";
+    }
+
     @PostMapping("/habit_tracker/save_day")
-    public String saveDay(Day day) {
+    public String saveDay_habitRegistration(Day day) {
         dayService.save(day);
         return "redirect:/habit_tracker";
     }

@@ -6,6 +6,23 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
 </head>
 <body>
+<div class="text-center">
+    <h1>Day Registration</h1>
+</div>
+<form th:action="@{/manage_day/save_day}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${day}">
+    <input type="hidden" th:field="${day.id}"/>
+    <div class="border border-secondary p-4 rounded">
+        <div class="mb-3">
+            <label class="h5" style="font-weight: bold">Date yyyy-mm-dd</label>
+            <input required th:field="${day.date}" class="form-control"/>
+        </div>
 
+        <div>
+            <button class="btn btn-primary mb-1" type="submit">Save</button>
+        </div>
+    </div>
+    <br/>
+    <a class="h4" th:href="@{/habit_tracker}">Cancel</a>
+</form>
 </body>
 </html>

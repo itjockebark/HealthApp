@@ -54,13 +54,16 @@ public class Day {
         this.habits = habits;
     }
 
-
-
     public void setId(Integer id) {
         this.id = id;
     }
 
     public Integer getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "" + date;
     }
 }

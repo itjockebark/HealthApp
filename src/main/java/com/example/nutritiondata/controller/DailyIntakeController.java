@@ -2,6 +2,7 @@ package com.example.nutritiondata.controller;
 
 import com.example.nutritiondata.model.DateClass;
 import com.example.nutritiondata.model.DayClass;
+import com.example.nutritiondata.model.Habit;
 import com.example.nutritiondata.model.Meal;
 import com.example.nutritiondata.service.DateService;
 import com.example.nutritiondata.service.DayService;
@@ -50,6 +51,13 @@ public class DailyIntakeController {
        model.addAttribute("totalcarbohydrates", totalCarbohydrates);
        return "total_intake";
    }*/
+
+    @GetMapping("/daily_intake/meals")
+    public String showAllMeals(Model model) {
+        List<Meal> meals = mealService.findAll();
+        model.addAttribute("meals", meals);
+        return "meals";
+    }
 
    @GetMapping("/daily_intake/meal_registration")
     public String mealRegistration(Model model) {

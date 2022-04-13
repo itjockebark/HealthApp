@@ -48,7 +48,7 @@ public class HabitTrackerController {
     }
 
     @GetMapping("/habit_tracker/habits")
-    public String habitToDelete(Model model) {
+    public String showAllHabits(Model model) {
         List<Habit> habits = habitService.findAll();
         model.addAttribute("habits", habits);
         return "habits";

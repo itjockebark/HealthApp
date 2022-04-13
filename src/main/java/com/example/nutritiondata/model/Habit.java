@@ -14,7 +14,7 @@ public class Habit {
     private String name;
 
     @ManyToMany(mappedBy = "habits", cascade = CascadeType.PERSIST)
-    private List<Day> days = new ArrayList<>();
+    private List<DayClass> days = new ArrayList<>();
 
     public Habit() {
     }
@@ -31,11 +31,11 @@ public class Habit {
         this.name = name;
     }
 
-    public List<Day> getDays() {
+    public List<DayClass> getDays() {
         return days;
     }
 
-    public void setDays(List<Day> days) {
+    public void setDays(List<DayClass> days) {
         this.days = days;
     }
 

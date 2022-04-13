@@ -2,7 +2,7 @@ package com.example.nutritiondata.service;
 
 import com.example.nutritiondata.dao.DayDAO;
 import com.example.nutritiondata.dao.MealDAO;
-import com.example.nutritiondata.model.Day;
+import com.example.nutritiondata.model.DayClass;
 import com.example.nutritiondata.model.Meal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +37,7 @@ public class MealService {
     }
 
     public Integer totalCalories(Integer id) {
-        Day day = dayDAO.getById(id);
+        DayClass day = dayDAO.getById(id);
         List<Meal> meals = day.getMeals();
 
         total = 0;
@@ -49,7 +49,7 @@ public class MealService {
     }
 
     public Integer totalProtein(Integer id) {
-        Day day = dayDAO.getById(id);
+        DayClass day = dayDAO.getById(id);
         List<Meal> meals = day.getMeals();
 
         total = 0;
@@ -61,7 +61,7 @@ public class MealService {
     }
 
     public Integer totalFat(Integer id) {
-        Day day = dayDAO.getById(id);
+        DayClass day = dayDAO.getById(id);
         List<Meal> meals = day.getMeals();
 
         total = 0;
@@ -73,7 +73,7 @@ public class MealService {
     }
 
     public Integer totalCarbohydrates(Integer id) {
-        Day day = dayDAO.getById(id);
+        DayClass day = dayDAO.getById(id);
         List<Meal> meals = day.getMeals();
 
         total = 0;

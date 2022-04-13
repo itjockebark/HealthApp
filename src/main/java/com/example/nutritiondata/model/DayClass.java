@@ -1,13 +1,12 @@
 package com.example.nutritiondata.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "days")
-public class Day {
+public class DayClass {
     @Id
     @GeneratedValue
     private Integer id;
@@ -20,14 +19,13 @@ public class Day {
     @ManyToMany()
     private List<Habit> habits = new ArrayList<>();
 
-    @ManyToMany
-    private List<Date> dates = new ArrayList<>();
+    @OneToMany(mappedBy = "day",cascade = CascadeType.PERSIST)
+    private List<DateClass> dates = new ArrayList<>();
 
-
-    public Day() {
+    public DayClass() {
     }
 
-    public Day(String name) {
+    public DayClass(String name) {
         this.name = name;
     }
 
@@ -39,11 +37,11 @@ public class Day {
         this.name = name;
     }
 
-    public List<Date> getDates() {
+    public List<DateClass> getDates() {
         return dates;
     }
 
-    public void setDates(List<Date> dates) {
+    public void setDates(List<DateClass> dates) {
         this.dates = dates;
     }
 

@@ -54,10 +54,10 @@ public class HabitTrackerController {
         return "habits";
     }
 
-    @GetMapping("/habit_tracker/delete_habit/delete/{id}")
+    @GetMapping("/habit_tracker/delete_habit/{id}")
     public String deleteHabit(@PathVariable("id") Integer id) {
         habitService.deleteById(id);
-        return "redirect:/habit_tracker";
+        return "redirect:/habit_tracker/habits";
     }
 
     @GetMapping("/habit_tracker/edit_habit/{id}")

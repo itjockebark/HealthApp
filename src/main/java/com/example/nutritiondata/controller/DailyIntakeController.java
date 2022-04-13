@@ -78,7 +78,7 @@ public class DailyIntakeController {
     @GetMapping("/daily_intake/delete_meal/{id}")
     public String deleteMeal(@PathVariable("id") Integer id) {
         mealService.deleteById(id);
-        return "redirect:/daily_intake";
+        return "redirect:/daily_intake/meals";
     }
 
 /*    @GetMapping("/daily_intake/edit_meal/{id}")

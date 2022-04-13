@@ -25,7 +25,7 @@
     <tbody class="table-light">
     <th:block th:each="day : ${days}">
         <tr>
-            <td th:text="${day}"></td>
+            <td th:text="${day.name}"></td>
             <td th:text="${day.habits}"></td>
 
             <td>

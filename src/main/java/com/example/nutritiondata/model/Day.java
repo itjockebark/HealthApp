@@ -12,7 +12,7 @@ public class Day {
     @GeneratedValue
     private Integer id;
 
-    private LocalDate date;
+    private String name;
 
     @ManyToMany
     private List<Meal> meals = new ArrayList<>();
@@ -20,21 +20,31 @@ public class Day {
     @ManyToMany()
     private List<Habit> habits = new ArrayList<>();
 
+    @ManyToMany
+    private List<Date> dates = new ArrayList<>();
+
+
     public Day() {
     }
 
-    public Day(String date) {
-        LocalDate parsedDate = LocalDate.parse(date);
-        this.date = parsedDate;
+    public Day(String name) {
+        this.name = name;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public String getName() {
+        return name;
     }
 
-    public void setDate(String date) {
-        LocalDate dayDate = LocalDate.parse(date);
-        this.date = dayDate;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Date> getDates() {
+        return dates;
+    }
+
+    public void setDates(List<Date> dates) {
+        this.dates = dates;
     }
 
     public List<Meal> getMeals() {
@@ -44,7 +54,6 @@ public class Day {
     public void setMeals(List<Meal> meals) {
         this.meals = meals;
     }
-
 
     public List<Habit> getHabits() {
         return habits;
@@ -60,10 +69,5 @@ public class Day {
 
     public Integer getId() {
         return id;
-    }
-
-    @Override
-    public String toString() {
-        return "" + date;
     }
 }

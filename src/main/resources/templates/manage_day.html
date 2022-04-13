@@ -26,7 +26,7 @@
     <tbody class="table-light">
     <th:block th:each="day : ${days}">
         <tr>
-            <td th:text="${day}"></td>
+            <td th:text="${day.date}"></td>
             <td>
                 <a class="h4 m-3" th:href="@{'/manage_day/edit_day/' + ${day.id}}">Edit</a>
             </td>

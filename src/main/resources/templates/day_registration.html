@@ -12,6 +12,12 @@
 <form th:action="@{/manage_day/save_day}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${day}">
     <input type="hidden" th:field="${day.id}"/>
     <div class="border border-secondary p-4 rounded">
+
+        <div class="mb-3">
+            <label class="h5" style="font-weight: bold">Date yyyy-mm-dd</label>
+            <input required th:field="${day.date}" class="form-control"/>
+        </div>
+
         <div class="mb-3">
             <label class="h5" style="font-weight: bold">Date yyyy-mm-dd</label>
             <input required th:field="${day.date}" class="form-control"/>

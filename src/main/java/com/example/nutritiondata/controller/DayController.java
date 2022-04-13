@@ -34,10 +34,4 @@ public class DayController {
         dayService.save(day);
         return "redirect:/manage_day";
     }
-
-    @PostMapping("/habit_tracker/save_day")
-    public String saveDay_habitRegistration(DayClass day) {
-        dayService.save(day);
-        return "redirect:/habit_tracker";
-    }
 }

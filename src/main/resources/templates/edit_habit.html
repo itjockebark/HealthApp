@@ -6,19 +6,25 @@
   <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
 </head>
 <body>
-<form th:action="@{/habit_tracker/save_day}" method="post" style="max-width: 500px; margin: 0 auto">
-  <input type="hidden" th:field="${day.id}"/>
+<form th:action="@{/habit_tracker/save_date}" method="post" style="max-width: 500px; margin: 0 auto">
+  <input type="hidden" th:field="${date.id}"/>
+  <input type="hidden" th:field="${date.day.id}"/>
   <div class="border border-secondary p-4 rounded">
     <div class="mb-3">
-      <label class="h5" style="font-weight: bold">Name</label>
-      <input required th:field="${day.name}"/>
+      <label class="h5" style="font-weight: bold">Date</label>
+      <input required th:field="${date.date}"/>
+    </div>
+
+    <div class="mb-3">
+      <label class="h5" style="font-weight: bold">Day</label>
+      <input required th:field="${date.day.name}"/>
     </div>
 
     <div>
       <label class="h5" style="font-weight: bold">Habit</label>
       <th:block th:each="habit : ${habits}">
         <div>
-          <input type="checkbox" th:field="*{day.habits}" th:text="${habit.name}"
+          <input type="checkbox" th:field="*{date.habits}" th:text="${habit.name}"
                  th:value="${habit.id}"/>
         </div>
       </th:block>

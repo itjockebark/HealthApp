@@ -1,8 +1,8 @@
 package com.example.nutritiondata.controller;
 
-import com.example.nutritiondata.model.DayClass;
+import com.example.nutritiondata.model.DateClass;
 import com.example.nutritiondata.model.Habit;
-import com.example.nutritiondata.service.DayService;
+import com.example.nutritiondata.service.DateService;
 import com.example.nutritiondata.service.HabitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,23 +20,23 @@ public class HabitTrackerController {
     HabitService habitService;
 
     @Autowired
-    DayService dayService;
+    DateService dateService;
 
     @GetMapping("/habit_tracker")
     public String habitTracker(Model model) {
         List<Habit> habits = habitService.findAll();
-        List<DayClass> days = dayService.findAll();
+        List<DateClass> dates = dateService.findAll();
 
         model.addAttribute("habits", habits);
-        model.addAttribute("days", days);
+        model.addAttribute("dates", dates);
         return "habit_tracker";
     }
 
     @GetMapping("/habit_tracker/habit_registration")
     public String habitRegistration(Model model) {
-        List<DayClass> days = dayService.findAll();
+        List<DateClass> dates = dateService.findAll();
 
-        model.addAttribute("days", days);
+        model.addAttribute("dates", dates);
         model.addAttribute("habit", new Habit());
         return "habit_registration";
     }
@@ -54,22 +54,20 @@ public class HabitTrackerController {
         return "delete_habit";
     }
 
-/*    @GetMapping("/habit_tracker/delete_habit/delete/{id}")
+    @GetMapping("/habit_tracker/delete_habit/delete/{id}")
     public String deleteHabit(@PathVariable("id") Integer id) {
         habitService.deleteById(id);
         return "redirect:/habit_tracker";
-    }*/
+    }
 
     @GetMapping("/habit_tracker/edit_habit/{id}")
     public String editMeal(@PathVariable("id") Integer id, Model model) {
-        DayClass day = dayService.findById(id);
+        DateClass date = dateService.findById(id);
         List<Habit> habits = habitService.findAll();
 
-        model.addAttribute("day", day);
+        model.addAttribute("date", date);
         model.addAttribute("habits", habits);
         return "edit_habit";
     }
-
-
 
 }

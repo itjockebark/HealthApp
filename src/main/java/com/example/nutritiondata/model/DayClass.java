@@ -13,7 +13,7 @@ public class DayClass {
 
     private String name;
 
-    @OneToMany(mappedBy = "day",cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "day",cascade = CascadeType.ALL)
     private List<DateClass> dates = new ArrayList<>();
 
     public DayClass() {

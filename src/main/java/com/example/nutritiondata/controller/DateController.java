@@ -44,9 +44,16 @@ public class DateController {
     }
 
     @PostMapping("/manage_date/save_date")
-    public String saveDate(DateClass date) {
+    public String saveDate_dateRegistration(DateClass date) {
         dateService.save(date);
         return "redirect:/manage_date";
+    }
+
+    @PostMapping("/habit_tracker/save_date")
+    public String saveDate_habitRegistration(DateClass date) {
+        dayService.save(date.getDay());
+        dateService.save(date);
+        return "redirect:/habit_tracker";
     }
 
     @GetMapping("manage_date/edit_date/{id}")

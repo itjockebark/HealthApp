@@ -13,12 +13,6 @@ public class DayClass {
 
     private String name;
 
-    @ManyToMany
-    private List<Meal> meals = new ArrayList<>();
-
-    @ManyToMany()
-    private List<Habit> habits = new ArrayList<>();
-
     @OneToMany(mappedBy = "day",cascade = CascadeType.PERSIST)
     private List<DateClass> dates = new ArrayList<>();
 
@@ -43,22 +37,6 @@ public class DayClass {
 
     public void setDates(List<DateClass> dates) {
         this.dates = dates;
-    }
-
-    public List<Meal> getMeals() {
-        return meals;
-    }
-
-    public void setMeals(List<Meal> meals) {
-        this.meals = meals;
-    }
-
-    public List<Habit> getHabits() {
-        return habits;
-    }
-
-    public void setHabits(List<Habit> habits) {
-        this.habits = habits;
     }
 
     public void setId(Integer id) {

@@ -32,7 +32,7 @@ public class DailyIntakeController {
        return "daily_intake";
    }
 
-   @GetMapping("/daily_intake/total_intake/{id}")
+/*   @GetMapping("/daily_intake/total_intake/{id}")
     public String totalIntake(@PathVariable("id") Integer id, Model model) {
        DayClass day = dayService.findById(id);
        Integer totalCalories = mealService.totalCalories(id);
@@ -46,7 +46,7 @@ public class DailyIntakeController {
        model.addAttribute("totalfat", totalFat);
        model.addAttribute("totalcarbohydrates", totalCarbohydrates);
        return "total_intake";
-   }
+   }*/
 
     @GetMapping("/daily_intake/meal_registration")
     public String mealRegistration(Model model) {

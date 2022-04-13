@@ -36,7 +36,7 @@ public class MealService {
         return mealDAO.findById(id).get();
     }
 
-    public Integer totalCalories(Integer id) {
+/*    public Integer totalCalories(Integer id) {
         DayClass day = dayDAO.getById(id);
         List<Meal> meals = day.getMeals();
 
@@ -82,7 +82,7 @@ public class MealService {
             total += meal.getCarbohydrates();
         }
         return total;
-    }
+    }*/
 
     public void deleteAll() {
         mealDAO.deleteAll();

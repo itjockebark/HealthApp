@@ -24,14 +24,14 @@ public class Meal {
     private Integer carbohydrates;
 
     @ManyToMany(mappedBy = "meals",cascade = CascadeType.PERSIST)
-    private List<DayClass> days = new ArrayList<>();
+    private List<DateClass> dates = new ArrayList<>();
 
-    public List<DayClass> getDays() {
-        return days;
+    public List<DateClass> getDates() {
+        return dates;
     }
 
-    public void setDays(List<DayClass> days) {
-        this.days = days;
+    public void setDates(List<DateClass> dates) {
+        this.dates = dates;
     }
 
     public Meal() {

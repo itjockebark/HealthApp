@@ -7,8 +7,9 @@
     </head>
 <body>
 <div class="text-center">
-    <h1>[[${pagetitle}]]</h1>
+    <h1>Habit Registration</h1>
 </div>
+<br/>
 <form th:action="@{/habit_tracker/save_habit}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${habit}">
     <input type="hidden" th:field="${habit.id}"/>
     <div class="border border-secondary p-4 rounded">

@@ -1,7 +1,9 @@
 package com.example.nutritiondata.controller;
 
+import com.example.nutritiondata.model.DateClass;
 import com.example.nutritiondata.model.DayClass;
 import com.example.nutritiondata.model.Meal;
+import com.example.nutritiondata.service.DateService;
 import com.example.nutritiondata.service.DayService;
 import com.example.nutritiondata.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,16 +20,17 @@ public class DailyIntakeController {
     @Autowired
     MealService mealService;
 
+
     @Autowired
-    DayService dayService;
+    DateService dateService;
 
 
    @GetMapping("/daily_intake")
     public String dailyIntake(Model model) {
        List<Meal> meals = mealService.findAll();
-       List<DayClass> days = dayService.findAll();
+       List<DateClass> dates = dateService.findAll();
 
-       model.addAttribute("days", days);
+       model.addAttribute("dates", dates);
        model.addAttribute("meals", meals);
        return "daily_intake";
    }
@@ -48,11 +51,11 @@ public class DailyIntakeController {
        return "total_intake";
    }*/
 
-    @GetMapping("/daily_intake/meal_registration")
+   @GetMapping("/daily_intake/meal_registration")
     public String mealRegistration(Model model) {
-        List<DayClass> days = dayService.findAll();
+       List<DateClass> dates = dateService.findAll();
 
-        model.addAttribute("days", days);
+        model.addAttribute("dates", dates);
         model.addAttribute("meal", new Meal());
         model.addAttribute("pagetitle","Meal Registration");
         return "meal_registration";
@@ -70,7 +73,7 @@ public class DailyIntakeController {
         return "redirect:/daily_intake";
     }
 
-    @GetMapping("/daily_intake/edit_meal/{id}")
+/*    @GetMapping("/daily_intake/edit_meal/{id}")
     public String editMeal(@PathVariable("id") Integer id, Model model) {
         List<DayClass> days = dayService.findAll();
         Meal meal = mealService.findById(id);
@@ -79,7 +82,7 @@ public class DailyIntakeController {
         model.addAttribute("meal",meal);
         model.addAttribute("pagetitle","Edit Meal");
         return "meal_registration";
-    }
+    }*/
 
     @GetMapping("/daily_intake/delete_meals")
     public String deleteMeals() {

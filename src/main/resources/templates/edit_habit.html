@@ -6,6 +6,10 @@
   <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
 </head>
 <body>
+<div class="text-center">
+  <h1>Edit Habit</h1>
+</div>
+<br/>
 <form th:action="@{/habit_tracker/save_date}" method="post" style="max-width: 500px; margin: 0 auto">
   <input type="hidden" th:field="${date.id}"/>
   <input type="hidden" th:field="${date.day.id}"/>

@@ -19,10 +19,6 @@ public class Meal {
 
     private Integer protein;
 
-    private Integer fat;
-
-    private Integer carbohydrates;
-
     @ManyToMany(mappedBy = "meals",cascade = CascadeType.PERSIST)
     private List<DateClass> dates = new ArrayList<>();
 
@@ -37,12 +33,10 @@ public class Meal {
     public Meal() {
     }
 
-    public Meal(String name, Integer calories, Integer protein, Integer fat, Integer carbohydrates) {
+    public Meal(String name, Integer calories, Integer protein) {
         this.name = name;
         this.calories = calories;
         this.protein = protein;
-        this.fat = fat;
-        this.carbohydrates = carbohydrates;
     }
 
     public String getName() {
@@ -68,22 +62,6 @@ public class Meal {
 
     public void setProtein(Integer protein) {
         this.protein = protein;
-    }
-
-    public Integer getFat() {
-        return fat;
-    }
-
-    public void setFat(Integer fat) {
-        this.fat = fat;
-    }
-
-    public Integer getCarbohydrates() {
-        return carbohydrates;
-    }
-
-    public void setCarbohydrates(Integer carbohydrates) {
-        this.carbohydrates = carbohydrates;
     }
 
     public void setId(Integer id) {

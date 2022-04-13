@@ -20,8 +20,6 @@
         <th>Name</th>
         <th>Calories</th>
         <th>Protein</th>
-        <th>Fat</th>
-        <th>Carbohydrates</th>
         <th>Total</th>
         <th>Operations</th>
     </tr>
@@ -33,8 +31,6 @@
             <td th:text="${meal.name}"></td>
             <td th:text="${meal.calories}"></td>
             <td th:text="${meal.protein}"></td>
-            <td th:text="${meal.fat}"></td>
-            <td th:text="${meal.carbohydrates}"></td>
 
             <td>
                 <a class="h4 m-3" th:href="@{'/daily_intake/total_intake/' + ${meal.getDay().id}}">Total Amount</a>

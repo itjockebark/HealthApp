@@ -22,7 +22,7 @@ class MealDAOTest {
 
     @Test
     public void testAddMeal() {
-        Meal meal = new Meal("Potatis",600,200,25,0);
+        Meal meal = new Meal("Potatis",600,200);
 
         dao.save(meal);
 
@@ -45,8 +45,8 @@ class MealDAOTest {
 
     @Test
     public void testDeleteAll() {
-        Meal meal1 = new Meal("Hamburgare",600,200,25,2);
-        Meal meal2 = new Meal("Toast Skagen",500,150,15,1);
+        Meal meal1 = new Meal("Hamburgare",600,200);
+        Meal meal2 = new Meal("Toast Skagen",500,150);
 
         dao.save(meal1);
         dao.save(meal2);
@@ -62,7 +62,7 @@ class MealDAOTest {
 
     @Test
     public void deleteById() {
-        Meal meal = new Meal("Potatis",600,200,25,0);
+        Meal meal = new Meal("Potatis",600,200);
 
         dao.save(meal);
 
@@ -78,8 +78,8 @@ class MealDAOTest {
 
     @Test
     public void totalCalories() {
-        Meal meal1 = new Meal("Potatis",600,200,25,0);
-        Meal meal2 = new Meal("Toast Skagen",500,150,15,1);
+        Meal meal1 = new Meal("Potatis",600,200);
+        Meal meal2 = new Meal("Toast Skagen",500,150);
 
         List<Meal> meals = new ArrayList<>();
 

@@ -24,4 +24,8 @@ public class DateService {
     public void deleteById(Integer id) {
         dateDAO.deleteById(id);
     }
+
+    public DateClass findById(Integer id) {
+        return dateDAO.findById(id).get();
+    }
 }

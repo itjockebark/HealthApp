@@ -48,4 +48,13 @@ public class DateController {
         dateService.save(date);
         return "redirect:/manage_date";
     }
+
+    @GetMapping("manage_date/edit_date/{id}")
+    public String manageDate(@PathVariable("id") Integer id, Model model) {
+        DateClass date = dateService.findById(id);
+        List<DayClass> days = dayService.findAll();
+        model.addAttribute("days", days);
+        model.addAttribute("date",date);
+        return "date_registration";
+    }
 }

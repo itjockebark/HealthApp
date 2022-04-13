@@ -96,6 +96,15 @@ public class DailyIntakeController {
         return "redirect:/daily_intake";
     }
 
+    @GetMapping("/daily_intake/connected_meals/{id}")
+    public String connectedMeals(@PathVariable("id") Integer id, Model model){
+        DateClass date = dateService.findById(id);
+
+        List<Meal> meals = mealService.findAll();
+        model.addAttribute("date", date);
+        model.addAttribute("meals", meals);
+        return "connected_meals";
+    }
 
 
 }

@@ -47,11 +47,11 @@ public class HabitTrackerController {
         return "redirect:/habit_tracker";
     }
 
-    @GetMapping("/habit_tracker/delete_habit")
+    @GetMapping("/habit_tracker/habits")
     public String habitToDelete(Model model) {
         List<Habit> habits = habitService.findAll();
         model.addAttribute("habits", habits);
-        return "delete_habit";
+        return "habits";
     }
 
     @GetMapping("/habit_tracker/delete_habit/delete/{id}")

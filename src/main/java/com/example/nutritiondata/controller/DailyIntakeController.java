@@ -1,7 +1,6 @@
 package com.example.nutritiondata.controller;
 
 import com.example.nutritiondata.model.DateClass;
-import com.example.nutritiondata.model.Habit;
 import com.example.nutritiondata.model.Meal;
 import com.example.nutritiondata.service.DateService;
 import com.example.nutritiondata.service.MealService;
@@ -34,22 +33,19 @@ public class DailyIntakeController {
        return "daily_intake";
    }
 
-/*   @GetMapping("/daily_intake/total_intake/{id}")
-    public String totalIntake(@PathVariable("id") Integer id, Model model) {
-       DayClass day = dayService.findById(id);
-       Integer totalCalories = mealService.totalCalories(id);
-       Integer totalProtein = mealService.totalProtein(id);
-       Integer totalFat = mealService.totalFat(id);
-       Integer totalCarbohydrates = mealService.totalCarbohydrates(id);
+    @GetMapping("/daily_intake/connected_meals/{id}")
+    public String connectedMeals(@PathVariable("id") Integer id, Model model){
+        DateClass date = dateService.findById(id);
+        List<Meal> meals = date.getMeals();
+        model.addAttribute("date", date);
+        model.addAttribute("meals", meals);
 
-       model.addAttribute("day", day);
-       model.addAttribute("totalcalories", totalCalories);
-       model.addAttribute("totalprotein", totalProtein);
-       model.addAttribute("totalfat", totalFat);
-       model.addAttribute("totalcarbohydrates", totalCarbohydrates);
-       return "total_intake";
-   }*/
-
+        Integer totalCalories = mealService.totalCalories(id);
+        Integer totalProtein = mealService.totalProtein(id);
+        model.addAttribute("totalcalories", totalCalories);
+        model.addAttribute("totalprotein", totalProtein);
+        return "connected_meals";
+    }
 
     @GetMapping("/daily_intake/meals")
     public String showAllMeals(Model model) {
@@ -97,16 +93,6 @@ public class DailyIntakeController {
         return "redirect:/daily_intake";
     }
 
-    @GetMapping("/daily_intake/connected_meals/{id}")
-    public String connectedMeals(@PathVariable("id") Integer id, Model model){
-        DateClass date = dateService.findById(id);
-        List<Meal> meals = date.getMeals();
-
-        //List<Meal> meals = mealService.findAll();
-        model.addAttribute("date", date);
-        model.addAttribute("meals", meals);
-        return "connected_meals";
-    }
 
 
 

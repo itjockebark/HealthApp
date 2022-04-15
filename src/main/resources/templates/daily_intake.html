@@ -32,14 +32,6 @@
             <td>
                 <a class="h4 m-3" th:href="@{'/daily_intake/connected_meals/' + ${date.id}}">Connected Meals</a>
             </td>
-            <!--th:href till alla måltider kopplade till enstaka datum-->
-<!--
-            <td th:text="${meal.calories}"></td>
-            <td th:text="${meal.protein}"></td>
-
-            <td>
-                <a class="h4 m-3" th:href="@{'/daily_intake/total_intake/' + ${meal.getDay().id}}">Total Amount</a>
-            </td>-->
             <td>
                 <a class="h4 m-3" th:href="@{'/daily_intake/edit_meal/' + ${date.id}}">Edit   </a>
 

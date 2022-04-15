@@ -1,8 +1,8 @@
 package com.example.nutritiondata.service;
 
-import com.example.nutritiondata.dao.DayDAO;
+import com.example.nutritiondata.dao.DateDAO;
 import com.example.nutritiondata.dao.MealDAO;
-import com.example.nutritiondata.model.DayClass;
+import com.example.nutritiondata.model.DateClass;
 import com.example.nutritiondata.model.Meal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class MealService {
     MealDAO mealDAO;
 
     @Autowired
-    DayDAO dayDAO;
+    DateDAO dateDAO;
 
     public void save(Meal meal) {
         mealDAO.save(meal);
@@ -37,53 +37,27 @@ public class MealService {
     }
 
 
-/*    public Integer totalCalories(Integer id) {
-        DayClass day = dayDAO.getById(id);
-        List<Meal> meals = day.getMeals();
+    public Integer totalCalories(Integer id) {
+        DateClass date = dateDAO.getById(id);
+
+        List<Meal> meals = date.getMeals();
 
         total = 0;
 
-        for (Meal meal : meals) {
-            total += meal.getCalories();
-        }
+        meals.stream().forEach(meal -> total += meal.getCalories());
         return total;
     }
 
     public Integer totalProtein(Integer id) {
-        DayClass day = dayDAO.getById(id);
-        List<Meal> meals = day.getMeals();
+        DateClass date = dateDAO.getById(id);
+
+        List<Meal> meals = date.getMeals();
 
         total = 0;
 
-        for (Meal meal : meals) {
-            total += meal.getProtein();
-        }
+        meals.stream().forEach(meal -> total += meal.getProtein());
         return total;
     }
-
-    public Integer totalFat(Integer id) {
-        DayClass day = dayDAO.getById(id);
-        List<Meal> meals = day.getMeals();
-
-        total = 0;
-
-        for (Meal meal : meals) {
-            total += meal.getFat();
-        }
-        return total;
-    }
-
-    public Integer totalCarbohydrates(Integer id) {
-        DayClass day = dayDAO.getById(id);
-        List<Meal> meals = day.getMeals();
-
-        total = 0;
-
-        for (Meal meal : meals) {
-            total += meal.getCarbohydrates();
-        }
-        return total;
-    }*/
 
     public void deleteAll() {
         mealDAO.deleteAll();

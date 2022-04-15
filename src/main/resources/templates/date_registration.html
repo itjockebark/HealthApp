@@ -9,6 +9,7 @@
 <div class="text-center">
     <h1>Day Registration</h1>
 </div>
+<br/>
 <form th:action="@{/manage_date/save_date}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${date}">
     <input type="hidden" th:field="${date.id}"/>
     <div class="border border-secondary p-4 rounded">

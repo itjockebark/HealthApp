@@ -18,7 +18,6 @@ public class DailyIntakeController {
     @Autowired
     MealService mealService;
 
-
     @Autowired
     DateService dateService;
 

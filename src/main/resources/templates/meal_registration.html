@@ -10,7 +10,7 @@
     <h1>Meal Registration</h1>
 </div>
 <br/>
-<form th:action="@{/daily_intake/save_meal}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${meal}">
+<form th:action="@{/management/meals/save_meal}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${meal}">
     <input type="hidden" th:field="${meal.id}"/>
     <div class="border border-secondary p-4 rounded">
 
@@ -31,7 +31,7 @@
         </div>
     </div>
     <br/>
-    <a class="h4" th:href="@{/daily_intake}">Cancel</a>
+    <a class="h4" th:href="@{/management/meals}">Cancel</a>
 </form>
 </body>
 </html>

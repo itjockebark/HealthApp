@@ -3,6 +3,7 @@ package com.example.nutritiondata.service;
 import com.example.nutritiondata.dao.DateDAO;
 import com.example.nutritiondata.dao.MealDAO;
 import com.example.nutritiondata.model.DateClass;
+import com.example.nutritiondata.model.Habit;
 import com.example.nutritiondata.model.Meal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,9 @@ public class MealService {
     }
 
     public void deleteById(Integer id) {
+        Meal meal = mealDAO.getById(id);
+
+        meal.getDates().forEach(date -> date.getMeals().remove(meal));
         mealDAO.deleteById(id);
     }
 

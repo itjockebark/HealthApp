@@ -46,35 +46,6 @@ public class DailyIntakeController {
         return "connected_meals";
     }
 
-    @GetMapping("/daily_intake/meals")
-    public String showAllMeals(Model model) {
-        List<Meal> meals = mealService.findAll();
-        model.addAttribute("meals", meals);
-        return "meals";
-    }
-
-   @GetMapping("/daily_intake/meal_registration")
-    public String mealRegistration(Model model) {
-       List<DateClass> dates = dateService.findAll();
-
-        model.addAttribute("dates", dates);
-        model.addAttribute("meal", new Meal());
-        model.addAttribute("pagetitle","Meal Registration");
-        return "meal_registration";
-    }
-
-    @PostMapping("/daily_intake/save_meal")
-    public String saveMeal(Meal meal) {
-        mealService.save(meal);
-        return "redirect:/daily_intake";
-    }
-
-    @GetMapping("/daily_intake/delete_meal/{id}")
-    public String deleteMeal(@PathVariable("id") Integer id) {
-        mealService.deleteById(id);
-        return "redirect:/daily_intake/meals";
-    }
-
     @GetMapping("/daily_intake/edit_meal/{id}")
     public String editMeal(@PathVariable("id") Integer id, Model model) {
         DateClass date = dateService.findById(id);

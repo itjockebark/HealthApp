@@ -26,7 +26,7 @@ public class DateController {
     public String manageDate(Model model) {
         List<DateClass> dates = dateService.findAll();
         model.addAttribute("dates", dates);
-        return "manage_date";
+        return "dates";
     }
 
     @GetMapping("/manage_date/date_registration")

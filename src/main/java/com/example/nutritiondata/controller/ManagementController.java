@@ -74,4 +74,19 @@ public class ManagementController {
         return "redirect:/management/habits";
     }
 
+    @GetMapping("/management/habits/habit_registration")
+    public String habitRegistration(Model model) {
+        List<DateClass> dates = dateService.findAll();
+
+        model.addAttribute("dates", dates);
+        model.addAttribute("habit", new Habit());
+        return "habit_registration";
+    }
+
+    @PostMapping("/management/habits/save_habit")
+    public String saveHabit(Habit habit) {
+        habitService.save(habit);
+        return "redirect:/management/habits";
+    }
+
 }

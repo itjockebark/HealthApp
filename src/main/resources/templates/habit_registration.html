@@ -10,7 +10,7 @@
     <h1>Habit Registration</h1>
 </div>
 <br/>
-<form th:action="@{/habit_tracker/save_habit}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${habit}">
+<form th:action="@{/management/habits/save_habit}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${habit}">
     <input type="hidden" th:field="${habit.id}"/>
     <div class="border border-secondary p-4 rounded">
         <div class="mb-3">
@@ -23,7 +23,7 @@
         </div>
     </div>
     <br/>
-    <a class="h4" th:href="@{/habit_tracker}">Cancel</a>
+    <a class="h4" th:href="@{/management/habits}">Cancel</a>
 </form>
 </body>
 </html>

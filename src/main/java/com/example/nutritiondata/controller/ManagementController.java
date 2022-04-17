@@ -85,6 +85,7 @@ public class ManagementController {
 
         model.addAttribute("dates", dates);
         model.addAttribute("habit", new Habit());
+        model.addAttribute("pagetitle", "Habit Registration");
         return "habit_registration";
     }
 
@@ -106,6 +107,7 @@ public class ManagementController {
         List<DayClass> days = dayService.findAll();
         model.addAttribute("days", days);
         model.addAttribute("date", new DateClass());
+        model.addAttribute("pagetitle", "Date Registration");
         return "date_registration";
     }
 
@@ -127,6 +129,7 @@ public class ManagementController {
         List<DayClass> days = dayService.findAll();
         model.addAttribute("days", days);
         model.addAttribute("date", date);
+        model.addAttribute("pagetitle", "Edit Date");
         return "date_registration";
     }
 
@@ -134,6 +137,7 @@ public class ManagementController {
     public String editMeal(@PathVariable("id") Integer id, Model model) {
         Meal meal = mealService.findById(id);
         model.addAttribute("meal", meal);
+        model.addAttribute("pagetitle", "Edit Meal");
         return "meal_registration";
     }
 
@@ -141,6 +145,7 @@ public class ManagementController {
     public String editHabit(@PathVariable("id") Integer id, Model model) {
         Habit habit = habitService.findById(id);
         model.addAttribute("habit", habit);
+        model.addAttribute("pagetitle", "Edit Habit");
         return "habit_registration";
     }
 

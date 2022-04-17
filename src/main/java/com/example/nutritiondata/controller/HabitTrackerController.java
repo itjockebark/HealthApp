@@ -47,13 +47,6 @@ public class HabitTrackerController {
         return "redirect:/habit_tracker";
     }
 
-    @GetMapping("/habit_tracker/habits")
-    public String showAllHabits(Model model) {
-        List<Habit> habits = habitService.findAll();
-        model.addAttribute("habits", habits);
-        return "habits";
-    }
-
     @GetMapping("/habit_tracker/delete_habit/{id}")
     public String deleteHabit(@PathVariable("id") Integer id) {
         habitService.deleteById(id);

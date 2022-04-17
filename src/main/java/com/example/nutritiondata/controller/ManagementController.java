@@ -1,8 +1,10 @@
 package com.example.nutritiondata.controller;
 
 import com.example.nutritiondata.model.DateClass;
+import com.example.nutritiondata.model.Habit;
 import com.example.nutritiondata.model.Meal;
 import com.example.nutritiondata.service.DateService;
+import com.example.nutritiondata.service.HabitService;
 import com.example.nutritiondata.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,8 @@ public class ManagementController {
     @Autowired
     DateService dateService;
 
+    @Autowired
+    HabitService habitService;
 
     @GetMapping("/management")
     public String management() {
@@ -56,4 +60,18 @@ public class ManagementController {
         mealService.save(meal);
         return "redirect:/management/meals";
     }
+
+    @GetMapping("/management/habits")
+    public String showAllHabits(Model model) {
+        List<Habit> habits = habitService.findAll();
+        model.addAttribute("habits", habits);
+        return "habits";
+    }
+
+    @GetMapping("/management/delete_habit/{id}")
+    public String deleteHabit(@PathVariable("id") Integer id) {
+        habitService.deleteById(id);
+        return "redirect:/management/habits";
+    }
+
 }

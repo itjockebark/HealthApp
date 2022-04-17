@@ -24,7 +24,7 @@
             <td th:text="${habit.id}"></td>
             <td th:text="${habit.name}"></td>
             <td>
-                <a class="h4 m-3" th:href="@{'/habit_tracker/delete_habit/' + ${habit.id}}">Remove</a>
+                <a class="h4 m-3" th:href="@{'/management/delete_habit/' + ${habit.id}}">Remove</a>
             </td>
         </tr>
     </th:block>
@@ -33,7 +33,7 @@
 </table>
 <br/>
 <div style="margin-left: 120px">
-    <a class="h4" th:href="@{/habit_tracker}">Cancel</a>
+    <a class="h4" th:href="@{/management}">Cancel</a>
 </div>
 <br/>
 </body>

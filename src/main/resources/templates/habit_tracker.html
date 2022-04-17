@@ -24,8 +24,9 @@
         <tr>
             <td th:text="${#dates.format(date.date, 'dd-MM-yyyy')}"></td>
             <td th:text="${date.day.name}"></td>
-            <td th:text="${date.habits}"></td>
-
+            <td>
+                <a class="h4 m-3" th:href="@{'/habit_tracker/connected_habits/' + ${date.id}}">Habits</a>
+            </td>
             <td>
                 <a class="h4 m-3" th:href="@{'/habit_tracker/edit_habit/' + ${date.id}}">Edit</a>
             </td>

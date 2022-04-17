@@ -2,6 +2,7 @@ package com.example.nutritiondata.controller;
 
 import com.example.nutritiondata.model.DateClass;
 import com.example.nutritiondata.model.Habit;
+import com.example.nutritiondata.model.Meal;
 import com.example.nutritiondata.service.DateService;
 import com.example.nutritiondata.service.DayService;
 import com.example.nutritiondata.service.HabitService;
@@ -34,6 +35,16 @@ public class HabitTrackerController {
         model.addAttribute("habits", habits);
         model.addAttribute("dates", dates);
         return "habit_tracker";
+    }
+
+    @GetMapping("/habit_tracker/connected_habits/{id}")
+    public String connectedHabits(@PathVariable("id") Integer id, Model model){
+        DateClass date = dateService.findById(id);
+        List<Habit> habits = date.getHabits();
+        model.addAttribute("date", date);
+        model.addAttribute("habits", habits);
+
+        return "connected_habits";
     }
 
 

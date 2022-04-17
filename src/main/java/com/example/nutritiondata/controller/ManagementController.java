@@ -95,7 +95,7 @@ public class ManagementController {
     }
 
     @GetMapping("/management/dates")
-    public String manageDate(Model model) {
+    public String editDate(Model model) {
         List<DateClass> dates = dateService.findAll();
         model.addAttribute("dates", dates);
         return "dates";
@@ -122,12 +122,26 @@ public class ManagementController {
     }
 
     @GetMapping("/management/dates/edit_date/{id}")
-    public String manageDate(@PathVariable("id") Integer id, Model model) {
+    public String editDate(@PathVariable("id") Integer id, Model model) {
         DateClass date = dateService.findById(id);
         List<DayClass> days = dayService.findAll();
         model.addAttribute("days", days);
-        model.addAttribute("date",date);
+        model.addAttribute("date", date);
         return "date_registration";
+    }
+
+    @GetMapping("/management/dates/edit_meal/{id}")
+    public String editMeal(@PathVariable("id") Integer id, Model model) {
+        Meal meal = mealService.findById(id);
+        model.addAttribute("meal", meal);
+        return "meal_registration";
+    }
+
+    @GetMapping("/management/dates/edit_habit/{id}")
+    public String editHabit(@PathVariable("id") Integer id, Model model) {
+        Habit habit = habitService.findById(id);
+        model.addAttribute("habit", habit);
+        return "habit_registration";
     }
 
 }

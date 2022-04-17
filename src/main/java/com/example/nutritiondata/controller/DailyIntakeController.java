@@ -3,6 +3,7 @@ package com.example.nutritiondata.controller;
 import com.example.nutritiondata.model.DateClass;
 import com.example.nutritiondata.model.Meal;
 import com.example.nutritiondata.service.DateService;
+import com.example.nutritiondata.service.DayService;
 import com.example.nutritiondata.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -20,6 +21,9 @@ public class DailyIntakeController {
 
     @Autowired
     DateService dateService;
+
+    @Autowired
+    DayService dayService;
 
 
    @GetMapping("/daily_intake")
@@ -54,12 +58,19 @@ public class DailyIntakeController {
         model.addAttribute("date", date);
         model.addAttribute("meals",meals);
         model.addAttribute("pagetitle","Edit Meal");
-        return "edit_meal";
+        return "edit_daily_intake";
     }
 
     @GetMapping("/daily_intake/delete_meals")
     public String deleteMeals() {
         mealService.deleteAll();
+        return "redirect:/daily_intake";
+    }
+
+    @PostMapping("/daily_intake/save_date")
+    public String saveDateAndDay(DateClass date) {
+        dayService.save(date.getDay());
+        dateService.save(date);
         return "redirect:/daily_intake";
     }
 

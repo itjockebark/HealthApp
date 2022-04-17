@@ -1,9 +1,11 @@
 package com.example.nutritiondata.controller;
 
 import com.example.nutritiondata.model.DateClass;
+import com.example.nutritiondata.model.DayClass;
 import com.example.nutritiondata.model.Habit;
 import com.example.nutritiondata.model.Meal;
 import com.example.nutritiondata.service.DateService;
+import com.example.nutritiondata.service.DayService;
 import com.example.nutritiondata.service.HabitService;
 import com.example.nutritiondata.service.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ public class ManagementController {
 
     @Autowired
     HabitService habitService;
+
+    @Autowired
+    DayService dayService;
 
     @GetMapping("/management")
     public String management() {
@@ -87,6 +92,42 @@ public class ManagementController {
     public String saveHabit(Habit habit) {
         habitService.save(habit);
         return "redirect:/management/habits";
+    }
+
+    @GetMapping("/management/dates")
+    public String manageDate(Model model) {
+        List<DateClass> dates = dateService.findAll();
+        model.addAttribute("dates", dates);
+        return "dates";
+    }
+
+    @GetMapping("/management/dates/date_registration")
+    public String dateRegistration(Model model) {
+        List<DayClass> days = dayService.findAll();
+        model.addAttribute("days", days);
+        model.addAttribute("date", new DateClass());
+        return "date_registration";
+    }
+
+    @PostMapping("/management/dates/save_date")
+    public String saveDate_dateRegistration(DateClass date) {
+        dateService.save(date);
+        return "redirect:/management/dates";
+    }
+
+    @GetMapping("/management/dates/delete_date/{id}")
+    public String deleteDate(@PathVariable("id") Integer id) {
+        dateService.deleteById(id);
+        return "redirect:/management/dates";
+    }
+
+    @GetMapping("/management/dates/edit_date/{id}")
+    public String manageDate(@PathVariable("id") Integer id, Model model) {
+        DateClass date = dateService.findById(id);
+        List<DayClass> days = dayService.findAll();
+        model.addAttribute("days", days);
+        model.addAttribute("date",date);
+        return "date_registration";
     }
 
 }

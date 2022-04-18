@@ -25,4 +25,8 @@ public class ExerciseService {
     public void deleteById(Integer id) {
         exerciseDAO.deleteById(id);
     }
+
+    public Exercise findById(Integer id) {
+        return exerciseDAO.findById(id).get();
+    }
 }

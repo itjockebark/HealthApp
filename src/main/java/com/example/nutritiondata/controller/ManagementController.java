@@ -137,7 +137,7 @@ public class ManagementController {
         return "edit_date";
     }
 
-    @GetMapping("/management/dates/edit_meal/{id}")
+    @GetMapping("/management/meals/edit_meal/{id}")
     public String editMeal(@PathVariable("id") Integer id, Model model) {
         Meal meal = mealService.findById(id);
         model.addAttribute("meal", meal);
@@ -145,12 +145,20 @@ public class ManagementController {
         return "meal_registration";
     }
 
-    @GetMapping("/management/dates/edit_habit/{id}")
+    @GetMapping("/management/habits/edit_habit/{id}")
     public String editHabit(@PathVariable("id") Integer id, Model model) {
         Habit habit = habitService.findById(id);
         model.addAttribute("habit", habit);
         model.addAttribute("pagetitle", "Edit Habit");
         return "habit_registration";
+    }
+
+    @GetMapping("/management/exercises/edit_exercise/{id}")
+    public String editExercise(@PathVariable("id") Integer id, Model model) {
+        Exercise exercise = exerciseService.findById(id);
+        model.addAttribute("exercise", exercise);
+        model.addAttribute("pagetitle", "Edit Exercise");
+        return "exercise_registration";
     }
 
     @GetMapping("/management/exercises")

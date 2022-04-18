@@ -1,13 +1,7 @@
 package com.example.nutritiondata.controller;
 
-import com.example.nutritiondata.model.DateClass;
-import com.example.nutritiondata.model.DayClass;
-import com.example.nutritiondata.model.Habit;
-import com.example.nutritiondata.model.Meal;
-import com.example.nutritiondata.service.DateService;
-import com.example.nutritiondata.service.DayService;
-import com.example.nutritiondata.service.HabitService;
-import com.example.nutritiondata.service.MealService;
+import com.example.nutritiondata.model.*;
+import com.example.nutritiondata.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +25,9 @@ public class ManagementController {
 
     @Autowired
     DayService dayService;
+
+    @Autowired
+    ExerciseService exerciseService;
 
     @GetMapping("/management")
     public String management() {
@@ -160,6 +157,13 @@ public class ManagementController {
         model.addAttribute("habit", habit);
         model.addAttribute("pagetitle", "Edit Habit");
         return "habit_registration";
+    }
+
+    @GetMapping("/management/exercises")
+    public String exercises(Model model) {
+        List<Exercise> exercises = exerciseService.findAll();
+        model.addAttribute("exercises", exercises);
+        return "exercises";
     }
 
 }

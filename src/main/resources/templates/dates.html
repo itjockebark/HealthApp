@@ -16,6 +16,7 @@
 <table class="table table-bordered" style="max-width: 1500px; margin: auto">
     <thead class="table-dark">
     <tr>
+        <th>ID</th>
         <th>Date</th>
         <th>Day</th>
         <th>Operations</th>
@@ -24,6 +25,7 @@
     <tbody class="table-light">
     <th:block th:each="date : ${dates}">
         <tr>
+            <td th:text="${date.id}"></td>
             <td th:text="${#dates.format(date.date, 'dd-MM-yyyy')}"></td>
             <td th:text="${date.day.name}"></td>
             <td>

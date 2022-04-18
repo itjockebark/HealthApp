@@ -19,7 +19,7 @@ public class Meal {
 
     private Integer protein;
 
-    @ManyToMany(mappedBy = "meals",cascade = CascadeType.PERSIST)
+    @ManyToMany(mappedBy = "meals")
     private List<DateClass> dates = new ArrayList<>();
 
     public List<DateClass> getDates() {

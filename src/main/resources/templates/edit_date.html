@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Date</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="text-center">
+    <h1>[[${pagetitle}]]</h1>
+</div>
+<br/>
+<form th:action="@{/management/dates/save_edit_date}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${date}">
+    <input type="hidden" th:field="${date.id}"/>
+    <div class="border border-secondary p-4 rounded">
+
+        <div class="mb-3">
+            <select class="form-control" th:field="*{day}">
+                <option value="0">Select day</option>
+                <option th:each="day : ${days}" th:value="${day.id}" th:text="${day.name}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="h5" style="font-weight: bold">Date yyyy-mm-dd</label>
+            <input type="date" required th:field="${date.date}" class="form-control"/>
+        </div>
+
+        <div>
+            <button class="btn btn-primary mb-1" type="submit">Save</button>
+        </div>
+    </div>
+    <br/>
+    <a class="h4" th:href="@{/management/dates}">Cancel</a>
+</form>
+</body>
+</html>

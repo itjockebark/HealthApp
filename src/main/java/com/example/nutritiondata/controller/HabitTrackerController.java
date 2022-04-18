@@ -61,6 +61,10 @@ public class HabitTrackerController {
     @PostMapping("/habit_tracker/save_date")
     public String saveDateAndDay(DateClass date) {
         dayService.save(date.getDay());
+
+        List<Meal> meals = dateService.findConnectedMeals(date.getId());
+
+        date.setMeals(meals);
         dateService.save(date);
         return "redirect:/habit_tracker";
     }

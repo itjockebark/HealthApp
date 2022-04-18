@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -96,7 +97,7 @@ public class ManagementController {
     }
 
     @GetMapping("/management/dates")
-    public String editDate(Model model) {
+    public String dates(Model model) {
         List<DateClass> dates = dateService.findAll();
         model.addAttribute("dates", dates);
         return "dates";
@@ -117,6 +118,18 @@ public class ManagementController {
         return "redirect:/management/dates";
     }
 
+    @PostMapping("/management/dates/save_edit_date")
+    public String saveEditDate(DateClass date) {
+        List<Meal> meals = dateService.findConnectedMeals(date.getId());
+        List<Habit> habits = dateService.findConnectedHabits(date.getId());
+
+        date.setMeals(meals);
+        date.setHabits(habits);
+
+        dateService.save(date);
+        return "redirect:/management/dates";
+    }
+
     @GetMapping("/management/dates/delete_date/{id}")
     public String deleteDate(@PathVariable("id") Integer id) {
         dateService.deleteById(id);
@@ -124,13 +137,14 @@ public class ManagementController {
     }
 
     @GetMapping("/management/dates/edit_date/{id}")
-    public String editDate(@PathVariable("id") Integer id, Model model) {
+    public String dates(@PathVariable("id") Integer id, Model model) {
         DateClass date = dateService.findById(id);
         List<DayClass> days = dayService.findAll();
+
         model.addAttribute("days", days);
         model.addAttribute("date", date);
         model.addAttribute("pagetitle", "Edit Date");
-        return "date_registration";
+        return "edit_date";
     }
 
     @GetMapping("/management/dates/edit_meal/{id}")

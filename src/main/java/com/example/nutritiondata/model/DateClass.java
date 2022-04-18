@@ -25,7 +25,7 @@ public class DateClass {
     @ManyToMany
     private List<Meal> meals = new ArrayList<>();
 
-    @ManyToMany()
+    @ManyToMany
     private List<Habit> habits = new ArrayList<>();
 
     public DateClass(Date date) {

@@ -1,6 +1,7 @@
 package com.example.nutritiondata.controller;
 
 import com.example.nutritiondata.model.DateClass;
+import com.example.nutritiondata.model.Habit;
 import com.example.nutritiondata.model.Meal;
 import com.example.nutritiondata.service.DateService;
 import com.example.nutritiondata.service.DayService;
@@ -70,6 +71,10 @@ public class DailyIntakeController {
     @PostMapping("/daily_intake/save_date")
     public String saveDateAndDay(DateClass date) {
         dayService.save(date.getDay());
+
+        List<Habit> habits = dateService.findConnectedHabits(date.getId());
+
+        date.setHabits(habits);
         dateService.save(date);
         return "redirect:/daily_intake";
     }

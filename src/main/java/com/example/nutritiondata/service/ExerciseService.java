@@ -2,6 +2,7 @@ package com.example.nutritiondata.service;
 
 import com.example.nutritiondata.dao.ExerciseDAO;
 import com.example.nutritiondata.model.Exercise;
+import com.example.nutritiondata.model.Habit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +20,11 @@ public class ExerciseService {
 
     public void save(Exercise exercise) {
         exerciseDAO.save(exercise);
+    }
+
+    public void deleteById(Integer id) {
+        Exercise exercise = exerciseDAO.getById(id);
+        exercise.getDates().forEach(date -> date.getExercises().remove(exercise));
+        exerciseDAO.deleteById(id);
     }
 }

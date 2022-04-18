@@ -67,7 +67,7 @@ public class ManagementController {
         return "habits";
     }
 
-    @GetMapping("/management/delete_habit/{id}")
+    @GetMapping("/management/habits/delete_habit/{id}")
     public String deleteHabit(@PathVariable("id") Integer id) {
         habitService.deleteById(id);
         return "redirect:/management/habits";
@@ -169,6 +169,12 @@ public class ManagementController {
     @PostMapping("/management/exercises/save_exercise")
     public String saveExercise(Exercise exercise) {
         exerciseService.save(exercise);
+        return "redirect:/management/exercises";
+    }
+
+    @GetMapping("/management/exercises/delete_exercise/{id}")
+    public String deleteExercise(@PathVariable("id") Integer id) {
+        exerciseService.deleteById(id);
         return "redirect:/management/exercises";
     }
 }

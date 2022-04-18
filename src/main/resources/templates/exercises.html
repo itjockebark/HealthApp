@@ -26,10 +26,11 @@
         <tr>
             <td th:text="${exercise.id}"></td>
             <td th:text="${exercise.name}"></td>
-<!--            <td>
-                <a class="h4 m-3" th:href="@{'/management/dates/edit_meal/' + ${meal.id}}">Edit</a>
-                <a class="h4 m-3" th:href="@{'/management/meals/delete_meal/' + ${meal.id}}">Remove</a>
-            </td>-->
+           <td>
+                <!--<a class="h4 m-3" th:href="@{'/management/dates/edit_meal/' + ${meal.id}}">Edit</a>-->
+
+                <a class="h4 m-3" th:href="@{'/management/exercises/delete_exercise/' + ${exercise.id}}">Remove</a>
+            </td>
         </tr>
     </th:block>
     </tbody>

@@ -16,23 +16,26 @@ public class Exercise {
 
     private String name;
 
-
-    @ManyToMany
-    List<DateClass> dates = new ArrayList<>();
+    private String muscleGroup;
 
     public Exercise() {
+    }
+
+    public Exercise(String name, String muscleGroup) {
+        this.name = name;
+        this.muscleGroup = muscleGroup;
     }
 
     public Exercise(String name) {
         this.name = name;
     }
 
-    public List<DateClass> getDates() {
-        return dates;
+    public String getMuscleGroup() {
+        return muscleGroup;
     }
 
-    public void setDates(List<DateClass> dates) {
-        this.dates = dates;
+    public void setMuscleGroup(String muscleGroup) {
+        this.muscleGroup = muscleGroup;
     }
 
     public String getName() {

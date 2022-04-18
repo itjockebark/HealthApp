@@ -18,6 +18,7 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Muscle Group</th>
         <th>Operations</th>
     </tr>
     </thead>
@@ -26,6 +27,7 @@
         <tr>
             <td th:text="${exercise.id}"></td>
             <td th:text="${exercise.name}"></td>
+            <td th:text="${exercise.muscleGroup}"></td>
            <td>
                 <!--<a class="h4 m-3" th:href="@{'/management/dates/edit_meal/' + ${meal.id}}">Edit</a>-->
 

@@ -23,8 +23,6 @@ public class ExerciseService {
     }
 
     public void deleteById(Integer id) {
-        Exercise exercise = exerciseDAO.getById(id);
-        exercise.getDates().forEach(date -> date.getExercises().remove(exercise));
         exerciseDAO.deleteById(id);
     }
 }

@@ -28,11 +28,22 @@ public class DateClass {
     @ManyToMany
     private List<Habit> habits = new ArrayList<>();
 
+    @ManyToMany
+    private List<Exercise> exercises = new ArrayList<>();
+
     public DateClass(Date date) {
         this.date = date;
     }
 
     public DateClass() {
+    }
+
+    public List<Exercise> getExercises() {
+        return exercises;
+    }
+
+    public void setExercises(List<Exercise> exercises) {
+        this.exercises = exercises;
     }
 
     public List<Meal> getMeals() {
@@ -46,7 +57,6 @@ public class DateClass {
     public List<Habit> getHabits() {
         return habits;
     }
-
 
     public void setHabits(List<Habit> habits) {
         this.habits = habits;

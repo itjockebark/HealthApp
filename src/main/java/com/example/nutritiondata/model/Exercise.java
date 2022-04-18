@@ -16,7 +16,6 @@ public class Exercise {
 
     private String name;
 
-    private double duration;
 
     @ManyToMany
     List<DateClass> dates = new ArrayList<>();
@@ -24,9 +23,8 @@ public class Exercise {
     public Exercise() {
     }
 
-    public Exercise(String name, double duration) {
+    public Exercise(String name) {
         this.name = name;
-        this.duration = duration;
     }
 
     public List<DateClass> getDates() {
@@ -43,14 +41,6 @@ public class Exercise {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public double getDuration() {
-        return duration;
-    }
-
-    public void setDuration(double duration) {
-        this.duration = duration;
     }
 
     public void setId(Integer id) {

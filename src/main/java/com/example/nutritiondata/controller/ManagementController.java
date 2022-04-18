@@ -49,9 +49,6 @@ public class ManagementController {
 
     @GetMapping("/management/meals/meal_registration")
     public String mealRegistration(Model model) {
-        List<DateClass> dates = dateService.findAll();
-
-        model.addAttribute("dates", dates);
         model.addAttribute("meal", new Meal());
         model.addAttribute("pagetitle","Meal Registration");
         return "meal_registration";
@@ -78,9 +75,6 @@ public class ManagementController {
 
     @GetMapping("/management/habits/habit_registration")
     public String habitRegistration(Model model) {
-        List<DateClass> dates = dateService.findAll();
-
-        model.addAttribute("dates", dates);
         model.addAttribute("habit", new Habit());
         model.addAttribute("pagetitle", "Habit Registration");
         return "habit_registration";
@@ -109,7 +103,7 @@ public class ManagementController {
     }
 
     @PostMapping("/management/dates/save_date")
-    public String saveDate_dateRegistration(DateClass date) {
+    public String saveDate(DateClass date) {
         dateService.save(date);
         return "redirect:/management/dates";
     }
@@ -166,4 +160,15 @@ public class ManagementController {
         return "exercises";
     }
 
+    @GetMapping("/management/exercises/exercise_registration")
+    public String exerciseRegistration(Model model) {
+        model.addAttribute("exercise", new Exercise());
+        return "exercise_registration";
+    }
+
+    @PostMapping("/management/exercises/save_exercise")
+    public String saveExercise(Exercise exercise) {
+        exerciseService.save(exercise);
+        return "redirect:/management/exercises";
+    }
 }

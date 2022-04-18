@@ -16,4 +16,8 @@ public class ExerciseService {
     public List<Exercise> findAll() {
         return exerciseDAO.findAll();
     }
+
+    public void save(Exercise exercise) {
+        exerciseDAO.save(exercise);
+    }
 }

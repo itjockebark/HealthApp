@@ -7,18 +7,17 @@
 </head>
 <body>
 <div class="text-center">
-    <h1>Meals</h1>
+    <h1>Exercises</h1>
 </div>
-<!--<div class="h2 text-center">
-    <a class="h2" th:href="@{/management/meals/meal_registration}">Meal Registration</a>
-</div>-->
+<div class="h2 text-center">
+    <a class="h2" th:href="@{/management/exercises/exercise_registration}">Exercise Registration</a>
+</div>
 <br/>
 <table class="table table-bordered" style="max-width: 1500px; margin: auto">
     <thead class="table-dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Duration</th>
         <th>Operations</th>
     </tr>
     </thead>
@@ -27,7 +26,6 @@
         <tr>
             <td th:text="${exercise.id}"></td>
             <td th:text="${exercise.name}"></td>
-            <td th:text="${exercise.duration}"></td>
 <!--            <td>
                 <a class="h4 m-3" th:href="@{'/management/dates/edit_meal/' + ${meal.id}}">Edit</a>
                 <a class="h4 m-3" th:href="@{'/management/meals/delete_meal/' + ${meal.id}}">Remove</a>

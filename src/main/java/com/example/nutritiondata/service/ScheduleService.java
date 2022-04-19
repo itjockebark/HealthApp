@@ -17,4 +17,8 @@ public class ScheduleService {
     public List<Schedule> findAll() {
         return scheduleDAO.findAll();
     }
+
+    public void save(Schedule schedule) {
+        scheduleDAO.save(schedule);
+    }
 }

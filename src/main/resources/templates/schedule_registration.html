@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule Registration</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="text-center">
+    <h1>Schedule Registration</h1>
+</div>
+<br/>
+<form th:action="@{/management/schedules/save_schedule}" method="post" style="max-width: 500px; margin: 0 auto" th:object="${schedule}">
+    <input type="hidden" th:field="${schedule.id}"/>
+    <div class="border border-secondary p-4 rounded">
+        <div class="mb-3">
+            <label class="h5" style="font-weight: bold">Name</label>
+            <input required th:field="${schedule.name}" class="form-control"/>
+        </div>
+
+        <div>
+            <button class="btn btn-primary mb-1" type="submit">Save</button>
+        </div>
+    </div>
+    <br/>
+    <a class="h4" th:href="@{/management/schedules}">Cancel</a>
+</form>
+</body>
+</html>

@@ -195,4 +195,16 @@ public class ManagementController {
         model.addAttribute("schedules", schedules);
         return "schedules";
     }
+
+    @GetMapping("/management/schedules/schedule_registration")
+    public String scheduleRegistration(Model model) {
+        model.addAttribute("schedule", new Schedule());
+        return "schedule_registration";
+    }
+
+    @PostMapping("/management/schedules/save_schedule")
+    public String saveSchedule(Schedule schedule) {
+        scheduleService.save(schedule);
+        return "redirect:/management/schedules";
+    }
 }

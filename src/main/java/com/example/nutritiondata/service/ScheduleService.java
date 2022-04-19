@@ -25,4 +25,8 @@ public class ScheduleService {
     public void deleteById(Integer id) {
         scheduleDAO.deleteById(id);
     }
+
+    public Schedule findById(Integer id) {
+        return scheduleDAO.findById(id).get();
+    }
 }

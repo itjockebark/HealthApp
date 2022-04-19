@@ -199,6 +199,7 @@ public class ManagementController {
     @GetMapping("/management/schedules/schedule_registration")
     public String scheduleRegistration(Model model) {
         model.addAttribute("schedule", new Schedule());
+        model.addAttribute("pagetitle", "Schedule Registration");
         return "schedule_registration";
     }
 
@@ -212,5 +213,13 @@ public class ManagementController {
     public String deleteSchedule(@PathVariable("id") Integer id) {
         scheduleService.deleteById(id);
         return "redirect:/management/schedules";
+    }
+
+    @GetMapping("/management/schedules/edit_schedule/{id}")
+    public String editSchedule(@PathVariable("id") Integer id, Model model) {
+        Schedule schedule = scheduleService.findById(id);
+        model.addAttribute("schedule", schedule);
+        model.addAttribute("pagetitle", "Edit Schedule");
+        return "schedule_registration";
     }
 }

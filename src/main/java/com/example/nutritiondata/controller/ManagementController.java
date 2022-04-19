@@ -29,6 +29,9 @@ public class ManagementController {
     @Autowired
     ExerciseService exerciseService;
 
+    @Autowired
+    ScheduleService scheduleService;
+
     @GetMapping("/management")
     public String management() {
         return "management";
@@ -184,5 +187,12 @@ public class ManagementController {
     public String deleteExercise(@PathVariable("id") Integer id) {
         exerciseService.deleteById(id);
         return "redirect:/management/exercises";
+    }
+
+    @GetMapping("/management/schedules")
+    public String schedules(Model model) {
+        List<Schedule> schedules = scheduleService.findAll();
+        model.addAttribute("schedules", schedules);
+        return "schedules";
     }
 }

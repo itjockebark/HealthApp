@@ -207,4 +207,10 @@ public class ManagementController {
         scheduleService.save(schedule);
         return "redirect:/management/schedules";
     }
+
+    @GetMapping("/management/schedules/delete_schedule/{id}")
+    public String deleteSchedule(@PathVariable("id") Integer id) {
+        scheduleService.deleteById(id);
+        return "redirect:/management/schedules";
+    }
 }

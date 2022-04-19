@@ -27,10 +27,10 @@
         <tr>
             <td th:text="${schedule.id}"></td>
             <td th:text="${schedule.name}"></td>
-<!--            <td>
-                <a class="h4 m-3" th:href="@{'/management/habits/edit_habit/' + ${habit.id}}">Edit</a>
-                <a class="h4 m-3" th:href="@{'/management/habits/delete_habit/' + ${habit.id}}">Remove</a>
-            </td>-->
+            <td>
+                <!--<a class="h4 m-3" th:href="@{'/management/habits/edit_habit/' + ${habit.id}}">Edit</a>-->
+                <a class="h4 m-3" th:href="@{'/management/schedules/delete_schedule/' + ${schedule.id}}">Remove</a>
+            </td>
         </tr>
     </th:block>
     </tbody>

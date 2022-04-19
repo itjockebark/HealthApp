@@ -21,4 +21,8 @@ public class ScheduleService {
     public void save(Schedule schedule) {
         scheduleDAO.save(schedule);
     }
+
+    public void deleteById(Integer id) {
+        scheduleDAO.deleteById(id);
+    }
 }

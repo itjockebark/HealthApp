@@ -18,12 +18,23 @@ public class Exercise {
 
     private String muscleGroup;
 
+    @ManyToMany
+    List<Schedule> schedules = new ArrayList<>();
+
     public Exercise() {
     }
 
     public Exercise(String name, String muscleGroup) {
         this.name = name;
         this.muscleGroup = muscleGroup;
+    }
+
+    public List<Schedule> getSchedules() {
+        return schedules;
+    }
+
+    public void setSchedules(List<Schedule> schedules) {
+        this.schedules = schedules;
     }
 
     public Exercise(String name) {

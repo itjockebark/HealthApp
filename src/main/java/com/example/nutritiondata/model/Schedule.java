@@ -48,4 +48,5 @@ public class Schedule {
     public Integer getId() {
         return id;
     }
+
 }

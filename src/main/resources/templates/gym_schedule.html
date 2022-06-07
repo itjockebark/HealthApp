@@ -22,12 +22,12 @@
     <th:block th:each="schedule : ${schedules}">
         <tr>
             <td th:text="${schedule.name}"></td>
-<!--            <td>
-                <a class="h4 m-3" th:href="@{'/daily_intake/connected_meals/' + ${date.id}}">Meals</a>
-            </td>-->
-<!--            <td>
-                <a class="h4 m-3" th:href="@{'/daily_intake/edit_meal/' + ${date.id}}">Edit   </a>
-            </td>-->
+          <td>
+                <a class="h4 m-3" th:href="@{'/gym_schedule/connected_exercises/' + ${schedule.id}}">Exercises</a>
+            </td>
+           <td>
+                <a class="h4 m-3" th:href="@{'/gym_schedule/edit_gym_schedule/' + ${schedule.id}}">Edit</a>
+            </td>
         </tr>
     </th:block>
     </tbody>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Gym Schedule</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="text-center">
+    <h1>Edit Gym Schedule</h1>
+</div>
+<br/>
+<form th:action="@{/gym_schedule/save_gym_schedule}" method="post" style="max-width: 500px; margin: 0 auto">
+    <input type="hidden" th:field="${schedule.id}"/>
+
+    <div class="border border-secondary p-4 rounded">
+        <div class="mb-3">
+            <label class="h5" style="font-weight: bold">Schedule</label>
+            <input required th:field="${schedule.name}"/>
+        </div>
+
+        <div>
+            <label class="h5" style="font-weight: bold">Habit</label>
+            <th:block th:each="exercise : ${exercises}">
+                <div>
+                    <input type="checkbox" th:field="*{schedule.exercises}" th:text="${exercise.name}"
+                           th:value="${exercise.id}"/>
+                </div>
+            </th:block>
+        </div>
+        <br/>
+        <div>
+            <button class="btn btn-primary mb-1" type="submit">Save</button>
+        </div>
+    </div>
+    <a class="h4" th:href="@{/gym_schedule}" >Cancel</a>
+</form>
+</form>
+</body>
+</html>

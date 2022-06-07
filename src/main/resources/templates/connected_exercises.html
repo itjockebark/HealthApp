@@ -2,26 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Connected Habits</title>
+    <title>Connected Exercises</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
 </head>
 <body>
 <div class="text-center">
-    <h1>Connected Meals</h1>
+    <h1>Connected Exercises</h1>
 </div>
 <br/>
 <table class="table table-bordered" style="max-width: 1500px; margin: auto">
     <thead class="table-dark">
     <tr>
         <th>ID</th>
-        <th>Habit</th>
+        <th>Exercise</th>
+        <th>Muscle Group</th>
     </tr>
     </thead>
     <tbody class="table-light">
-    <th:block th:each="habit : ${habits}">
+    <th:block th:each="exercise : ${exercises}">
         <tr>
-            <td th:text="${habit.id}"></td>
-            <td th:text="${habit.name}"></td>
+            <td th:text="${exercise.id}"></td>
+            <td th:text="${exercise.name}"></td>
+            <td th:text="${exercise.muscleGroup}"></td>
         </tr>
     </th:block>
     </tbody>
@@ -30,8 +32,9 @@
 <br/>
 <br/>
 <div style="margin-left: 120px">
-    <a class="h4" th:href="@{/habit_tracker}">Back</a>
+    <a class="h4" th:href="@{/gym_schedule}">Back</a>
 </div>
 <br/>
+</body>
 </body>
 </html>

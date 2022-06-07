@@ -177,6 +177,8 @@ public class ManagementController {
         return "exercise_registration";
     }
 
+
+
     @PostMapping("/management/exercises/save_exercise")
     public String saveExercise(Exercise exercise) {
         exerciseService.save(exercise);

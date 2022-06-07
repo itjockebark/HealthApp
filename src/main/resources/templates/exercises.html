@@ -19,7 +19,9 @@
         <th>ID</th>
         <th>Name</th>
         <th>Muscle Group</th>
+        <th>Schedule Type</th>
         <th>Operations</th>
+
     </tr>
     </thead>
     <tbody class="table-light">
@@ -27,7 +29,8 @@
         <tr>
             <td th:text="${exercise.id}"></td>
             <td th:text="${exercise.name}"></td>
-            <td th:text="${exercise.muscleGroup}"></td>
+            <td th:text="${exercise.muscleGroup}"></td>'
+            <td th:text="${exercise.scheduleType}"></td>
            <td>
                 <a class="h4 m-3" th:href="@{'/management/exercises/edit_exercise/' + ${exercise.id}}">Edit</a>
 

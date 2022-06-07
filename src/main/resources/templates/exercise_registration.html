@@ -23,6 +23,13 @@
             <input required th:field="${exercise.muscleGroup}" class="form-control"/>
         </div>
 
+        <div class="mb-3">
+            <select class="form-control" th:field="*{scheduleType}">
+                <option value="0">Select day</option>
+                <option th:each="day : ${}" th:value="${day.id}" th:text="${day.name}"></option>
+            </select>
+        </div>
+
         <div>
             <button class="btn btn-primary mb-1" type="submit">Save</button>
         </div>
